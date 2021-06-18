@@ -25,14 +25,13 @@
 
     <script>
         let ctx = $('#chart');
-        const stats = [parseInt($('#s1').val()),2,3,4,5,6]
         new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['SHP', 'Spot', 'Flex (Gas)', 'Base', 'Flex (Strom)', 'Peak'],
                 datasets: [{
                     label: '# of Orders',
-                    data: stats,
+                    data: [3, 4, 15, 9, 22, 12],
                     backgroundColor: [
                         'rgba(246,98,129,0.2)',
                         'rgba(54, 162, 235, 0.2)',

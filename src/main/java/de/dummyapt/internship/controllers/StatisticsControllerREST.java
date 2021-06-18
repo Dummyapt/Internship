@@ -14,7 +14,7 @@ public class StatisticsControllerREST {
     public String showStats() {
         var stringBuilder = new StringBuilder();
         stringBuilder
-                .append("<input type=\"number\" disabled id=\"s1\" value=\"").append(statisticsService.getStatisticsCountBy(1)).append("\">")
+                .append("<a>").append(statisticsService.getStatisticsCountBy(1)).append("</a>")
                 .append("<a>").append(statisticsService.getStatisticsCountBy(2)).append("</a>")
                 .append("<a>").append(statisticsService.getStatisticsCountBy(3)).append("</a>")
                 .append("<a>").append(statisticsService.getStatisticsCountBy(4)).append("</a>")
