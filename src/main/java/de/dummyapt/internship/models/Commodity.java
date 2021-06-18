@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "commodity", schema = "internship")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Commodity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

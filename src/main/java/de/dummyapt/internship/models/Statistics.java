@@ -1,15 +1,12 @@
 package de.dummyapt.internship.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "statistics", schema = "internship")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Statistics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
