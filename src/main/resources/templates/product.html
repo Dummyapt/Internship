@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Products | Webshop</title>
+    <script>
+        window.onload = function() {
+            $('#products').load("productList");
+        };
+        setInterval(function() {
+            $('#products').load("productList");
+        }, 30_000);
+    </script>
+    <style>
+        th, td {
+            max-width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Willkommen in meinem Shop!</h1>
+    </div>
+
+    <div class="container text-center" id="products"></div>
+
+    <div class="modal fade" id="orderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Bitte bestätigen Sie den Kauf</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Sie sind im Begriff folgende Bestellung abzusetzen:
+                    <ul>
+                        <li>
+                            <b>ID:</b> <a id="productId"></a>
+                        </li>
+                        <li>
+                            <b>Preis:</b> <a id="productCurrentPrice"></a>€
+                        </li>
+                        <li>
+                            <b>Name:</b> <a id="productName"></a>
+                        </li>
+                        <li>
+                            <b>Commodity:</b> <a id="productCommodity"></a>
+                        </li>
+                        <li>
+                            <b>Gewünschte Leistung:</b> <a id="productPower"></a> kWh
+                        </li>
+                        <li>
+                            <b>Gesamtkosten:</b> <a id="productPrice"></a>€
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirmOrder">Bestätigen</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelOrder">Abbrechen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <a role="button" class="btn btn-warning" href="/stats">Stats</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+    <script>
+        $('#orderModal').on('show.bs.modal', function (event) {
+            const button = $(event.relatedTarget);
+
+            const productId = button.data('productid');
+            const productCurrentPrice = button.data('productcurrentprice');
+            const productName = button.data('productname');
+            const productCommodity = button.data('productcommodity');
+            const productPower = $(".valueInput" + productId).val();
+            const productPrice = productCurrentPrice * productPower * 365 * 24;
+
+            $('#productId').text(productId);
+            $('#productCurrentPrice').text(productCurrentPrice);
+            $('#productName').text(productName);
+            $('#productCommodity').text(productCommodity);
+            $('#productPower').text(productPower);
+            $('#productPrice').text(parseFloat(productPrice).toFixed(2));
+
+            $("#confirmOrder").on("click", function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/createOrder",
+                    data:{
+                        "id" : productId,
+                        "name" : productName,
+                        "current_price" : productCurrentPrice,
+                        "commodity_id" : productCommodity,
+                    },
+                    success: function(){
+                        alert("Success!");
+                    },
+                    error: function () {
+                        alert("Error!");
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+</html>
