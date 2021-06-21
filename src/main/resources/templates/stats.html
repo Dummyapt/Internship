@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,6 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
-    <script>
-        window.onload = function() {
-            $('#count').load("statsChart");
-        };
-    </script>
     <title>Statistics | Webshop</title>
 </head>
 <body>
@@ -21,17 +16,32 @@
         <canvas id="chart"></canvas>
     </div>
 
-    <div class="container" id="count"></div>
+    <div class="container" id="count" hidden>
+        <a id="1" th:text="${SHP}"></a>
+        <a id="2" th:text="${Spot}"></a>
+        <a id="3" th:text="${Flex}"></a>
+        <a id="4" th:text="${Base}"></a>
+        <a id="5" th:text="${Flex2}"></a>
+        <a id="6" th:text="${Peak}"></a>
+    </div>
 
     <script>
         let ctx = $('#chart');
+        let arr = [
+            $('#1').text(),
+            $('#2').text(),
+            $('#3').text(),
+            $('#4').text(),
+            $('#5').text(),
+            $('#6').text()
+        ];
         new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['SHP', 'Spot', 'Flex (Gas)', 'Base', 'Flex (Strom)', 'Peak'],
                 datasets: [{
                     label: '# of Orders',
-                    data: [3, 4, 15, 9, 22, 12],
+                    data: arr,
                     backgroundColor: [
                         'rgba(246,98,129,0.2)',
                         'rgba(54, 162, 235, 0.2)',
