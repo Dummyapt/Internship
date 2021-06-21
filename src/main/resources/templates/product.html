@@ -34,29 +34,31 @@
                     <h5 class="modal-title" id="orderModalLabel">Bitte bestätigen Sie den Kauf</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <div class="modal-body">
                     Sie sind im Begriff folgende Bestellung abzusetzen:
                     <ul>
-                        <li>
+                        <li id="modalId">
                             <b>ID:</b> <a id="productId"></a>
                         </li>
-                        <li>
+                        <li id="modalPrice">
                             <b>Preis:</b> <a id="productCurrentPrice"></a>€
                         </li>
-                        <li>
+                        <li id="modalName">
                             <b>Name:</b> <a id="productName"></a>
                         </li>
-                        <li>
+                        <li id="modalCommodity">
                             <b>Commodity:</b> <a id="productCommodity"></a>
                         </li>
-                        <li>
+                        <li id="modalPower">
                             <b>Gewünschte Leistung:</b> <a id="productPower"></a> kWh
                         </li>
-                        <li>
+                        <li id="modalCost">
                             <b>Gesamtkosten:</b> <a id="productPrice"></a>€
                         </li>
                     </ul>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="confirmOrder">Bestätigen</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelOrder">Abbrechen</button>
@@ -89,19 +91,17 @@
             $('#productCommodity').text(productCommodity);
             $('#productPower').text(productPower);
             $('#productPrice').text(parseFloat(productPrice).toFixed(2));
+        });
 
-            $("#confirmOrder").on("click", function(e) {
-                e.preventDefault();
-                $.post({
-                    url: "confirmOrder",
-                    data: {
-                        "id" : productId,
-                        "name" : productName,
-                        "current_price" : productCurrentPrice,
-                        "commodity_id" : productCommodity,
-                    }
-                })
-            });
+        $("#confirmOrder").on("click", function() {
+            $.post({
+                url: "/confirmOrder",
+                data: {
+                    "id" : $('#modalId').text(),
+                    "power" : $('#modalPower').text(),
+                    "cost" : $('#modalCost').text()
+                }
+            })
         });
     </script>
 </body>

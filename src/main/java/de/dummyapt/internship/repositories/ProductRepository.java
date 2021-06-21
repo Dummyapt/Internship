@@ -11,4 +11,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     @Transactional
     @Query(value = "UPDATE product SET current_price = RAND()", nativeQuery = true)
     void updatePrices();
+    Product findProductById(Integer id);
 }

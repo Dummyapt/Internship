@@ -32,4 +32,9 @@ public class OrderService implements OrderServiceAPI {
     public Integer getOrderCount(Integer productId) {
         return orderRepository.getOrderCount(productId);
     }
+
+    @Override
+    public void saveOrder(Order order) {
+        orderRepository.save(order);
+    }
 }

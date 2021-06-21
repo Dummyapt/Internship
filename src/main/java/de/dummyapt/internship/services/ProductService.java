@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @EnableScheduling
@@ -27,8 +26,8 @@ public class ProductService implements ProductServiceAPI {
     }
 
     @Override
-    public Optional<Product> getProductById(Integer id) {
-        return productRepository.findById(id);
+    public Product getProductById(Integer id) {
+        return productRepository.findProductById(id);
     }
 
     @Override
