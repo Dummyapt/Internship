@@ -14,8 +14,12 @@ import java.util.Optional;
 @Service
 @EnableScheduling
 public class ProductService implements ProductServiceAPI {
+    private final ProductRepository productRepository;
+
     @Autowired
-    private ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Override
     public List<Product> getAllProducts() {

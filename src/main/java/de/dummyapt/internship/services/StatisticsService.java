@@ -11,8 +11,12 @@ import java.util.Optional;
 
 @Service
 public class StatisticsService implements StatisticsServiceAPI {
+    private final StatisticsRepository statisticsRepository;
+
     @Autowired
-    private StatisticsRepository statisticsRepository;
+    public StatisticsService(StatisticsRepository statisticsRepository) {
+        this.statisticsRepository = statisticsRepository;
+    }
 
     @Override
     public List<Statistics> getAllStatistics() {

@@ -11,8 +11,12 @@ import java.util.Optional;
 
 @Service
 public class CommodityService implements CommodityServiceAPI {
+    private final CommodityRepository commodityRepository;
+
     @Autowired
-    private CommodityRepository commodityRepository;
+    public CommodityService(CommodityRepository commodityRepository) {
+        this.commodityRepository = commodityRepository;
+    }
 
     @Override
     public List<Commodity> getAllCommodities() {

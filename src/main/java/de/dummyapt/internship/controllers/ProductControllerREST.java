@@ -10,8 +10,12 @@ import java.util.List;
 
 @RestController
 public class ProductControllerREST {
+    private final ProductServiceAPI productService;
+
     @Autowired
-    private ProductServiceAPI productService;
+    public ProductControllerREST(ProductServiceAPI productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/productList")
     public String showProducts() {

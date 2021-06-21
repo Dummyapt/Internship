@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class StatisticsController {
+    private final StatisticsServiceAPI statisticsService;
+
     @Autowired
-    private StatisticsServiceAPI statisticsService;
+    public StatisticsController(StatisticsServiceAPI statisticsService) {
+        this.statisticsService = statisticsService;
+    }
 
     @GetMapping("/stats")
     public String showStats(Model model) {

@@ -11,8 +11,12 @@ import java.util.Optional;
 
 @Service
 public class OrderService implements OrderServiceAPI {
+    private final OrderRepository orderRepository;
+
     @Autowired
-    private OrderRepository orderRepository;
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @Override
     public List<Order> getAllOrders() {
