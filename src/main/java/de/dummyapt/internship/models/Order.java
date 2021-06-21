@@ -17,7 +17,13 @@ public class Order {
     @JoinColumn(name = "product_id")
     private Product product;
     @Column(name = "power")
-    private BigDecimal power;
+    private Double power;
     @Column(name = "price")
-    private BigDecimal price;
+    private Double price;
+
+    public Order(Product product, Double power, Double price) {
+        this.product = product;
+        this.power = power;
+        this.price = price;
+    }
 }

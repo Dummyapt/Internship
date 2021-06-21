@@ -14,4 +14,8 @@ public class Commodity {
     private Integer id;
     @Column(name = "name")
     private String name;
+
+    public Commodity(String name) {
+        this.name = name;
+    }
 }

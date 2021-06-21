@@ -13,7 +13,7 @@ public class ProductControllerREST {
     @Autowired
     private ProductServiceAPI productService;
 
-    @GetMapping("productList")
+    @GetMapping("/productList")
     public String showProducts() {
         List<Product> products;
         products = productService.getAllProducts();
@@ -38,10 +38,11 @@ public class ProductControllerREST {
             stringBuilder.append("<tr><td>")
                     .append(product.getId()).append(openAndClose)
                     .append(product.getName()).append(openAndClose)
-                    .append(product.getCurrentPrice()).append(openAndClose)
+                    .append(product.getCurrentPrice()).append("€").append(openAndClose)
                     .append(product.getCommodity().getName()).append(openAndClose)
                     .append("<input type=number min=0 class=\"valueInput").append(i).append("\">").append(openAndClose)
                     .append("<a ")
+                    .append("id=").append("\"").append("confirmOrder").append(i).append("\"")
                     .append("role=").append("\"").append("button").append("\"")
                     .append("class=").append("\"").append("btn btn-primary").append("\"")
                     .append("data-bs-toggle=").append("\"").append("modal").append("\"")

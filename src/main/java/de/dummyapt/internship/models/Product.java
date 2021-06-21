@@ -16,8 +16,14 @@ public class Product {
     @Column(name = "name")
     private String name;
     @Column(name = "current_price")
-    private BigDecimal currentPrice;
+    private Double currentPrice;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "commodity_id")
     private Commodity commodity;
+
+    public Product(String name, Double currentPrice, Commodity commodity) {
+        this.name = name;
+        this.currentPrice = currentPrice;
+        this.commodity = commodity;
+    }
 }

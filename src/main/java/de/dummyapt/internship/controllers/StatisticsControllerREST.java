@@ -10,7 +10,7 @@ public class StatisticsControllerREST {
     @Autowired
     private StatisticsServiceAPI statisticsService;
 
-    @GetMapping("statsChart")
+    @GetMapping("/statsChart")
     public String showStats() {
         var stringBuilder = new StringBuilder();
         stringBuilder

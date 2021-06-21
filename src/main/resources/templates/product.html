@@ -81,7 +81,7 @@
             const productName = button.data('productname');
             const productCommodity = button.data('productcommodity');
             const productPower = $(".valueInput" + productId).val();
-            const productPrice = productCurrentPrice * productPower * 365 * 24;
+            const productPrice = productCurrentPrice * productPower;
 
             $('#productId').text(productId);
             $('#productCurrentPrice').text(productCurrentPrice);
@@ -92,20 +92,13 @@
 
             $("#confirmOrder").on("click", function(e) {
                 e.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "/createOrder",
-                    data:{
+                $.post({
+                    url: "confirmOrder",
+                    data: {
                         "id" : productId,
                         "name" : productName,
                         "current_price" : productCurrentPrice,
                         "commodity_id" : productCommodity,
-                    },
-                    success: function(){
-                        alert("Success!");
-                    },
-                    error: function () {
-                        alert("Error!");
                     }
                 })
             });
