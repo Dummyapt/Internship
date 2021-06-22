@@ -1,6 +1,7 @@
 package de.dummyapt.internship.controllers;
 
 import de.dummyapt.internship.models.Product;
+import de.dummyapt.internship.services.api.OrderServiceAPI;
 import de.dummyapt.internship.services.api.ProductServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +13,12 @@ import java.util.List;
 @RestController
 public class ProductControllerREST {
     private final ProductServiceAPI productService;
+    private final OrderServiceAPI orderService;
 
     @Autowired
-    public ProductControllerREST(ProductServiceAPI productService) {
+    public ProductControllerREST(ProductServiceAPI productService, OrderServiceAPI orderService) {
         this.productService = productService;
+        this.orderService = orderService;
     }
 
     @GetMapping("/productList")
