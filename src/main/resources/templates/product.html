@@ -131,9 +131,9 @@
                 type: "POST",
                 url: "/confirmOrder",
                 data: {
-                    "id" : $('#modalId').text(),
-                    "power" : $('#modalPower').text(),
-                    "cost" : $('#modalCost').text()
+                    "id" : $('#productId').text(),
+                    "power" : $('#productPower').text(),
+                    "cost" : $('#productPrice').text()
                 },
                 success: async function() {
                     $('#orderConfirmation').load("orderSuccess");
