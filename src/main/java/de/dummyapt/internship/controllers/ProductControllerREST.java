@@ -68,6 +68,7 @@ public class ProductControllerREST {
         return stringBuilder.toString();
     }
 
+    // TODO: 22.06.2021 Implement a way for Spring/Controller to get post request data
     @PostMapping("/productList")
     public void confirmOrder() {}
 }
