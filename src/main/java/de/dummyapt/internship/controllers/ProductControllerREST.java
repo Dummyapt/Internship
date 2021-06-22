@@ -6,6 +6,7 @@ import de.dummyapt.internship.services.api.ProductServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -68,10 +69,12 @@ public class ProductControllerREST {
         return stringBuilder.toString();
     }
 
-    // TODO: 22.06.2021 Get POST data
     @PostMapping("/confirmOrder")
-    public String confirmOrder() {
-        orderService.saveOrder(1, 0.0, 0.0);
+    public String confirmOrder(
+            @RequestParam(value = "id") Integer id,
+            @RequestParam(value = "power") Double power,
+            @RequestParam(value = "cost") Double cost) {
+        orderService.saveOrder(id, power, cost);
         return "";
     }
 
