@@ -69,8 +69,5 @@ public class ProductControllerREST {
     }
 
     @PostMapping("/productList")
-    public void confirmOrder() {
-        System.out.println("Bing");
-        orderService.saveOrder(1, 1.0, 1.0);
-    }
+    public void confirmOrder() {}
 }
