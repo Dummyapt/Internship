@@ -75,7 +75,7 @@ public class ProductControllerREST {
             @RequestParam(value = "power") Double power,
             @RequestParam(value = "cost") Double cost) {
         orderService.saveOrder(id, power, cost);
-        return "test";
+        return "";
     }
 
     @GetMapping("/orderSuccess")
