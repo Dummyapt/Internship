@@ -9,21 +9,54 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
     <title>Statistics | Webshop</title>
 </head>
 <body>
-    <div class="container" id="statsContainer">
-        <canvas id="chart"></canvas>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="http://localhost:8080/">Shop</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" id="backHome" href="http://localhost:8080/">Home</a>
+                        </li>
+                        <li class="nav-item" style="background-color: rgba(6,6,6,0.2); border-radius: 15px;">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/stats">Statistics</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container" id="count" hidden>
-        <a id="1" th:text="${SHP}"></a>
-        <a id="2" th:text="${Spot}"></a>
-        <a id="3" th:text="${Flex}"></a>
-        <a id="4" th:text="${Base}"></a>
-        <a id="5" th:text="${Flex2}"></a>
-        <a id="6" th:text="${Peak}"></a>
-    </div>
+    <main>
+        <div class="container" id="statsContainer">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div class="container" id="count" hidden>
+            <a id="1" th:text="${SHP}"></a>
+            <a id="2" th:text="${Spot}"></a>
+            <a id="3" th:text="${Flex}"></a>
+            <a id="4" th:text="${Base}"></a>
+            <a id="5" th:text="${Flex2}"></a>
+            <a id="6" th:text="${Peak}"></a>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
+        </div>
+    </footer>
 
     <script>
         let ctx = $('#chart');
@@ -69,6 +102,8 @@
                 }
             }
         });
+
+        $('#yearSpan').text(new Date().getFullYear());
     </script>
 </body>
 </html>
