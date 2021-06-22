@@ -68,6 +68,6 @@ public class ProductControllerREST {
         return stringBuilder.toString();
     }
 
-    @PostMapping("/confirmOrder")
+    @PostMapping("/productList")
     public void confirmOrder() {}
 }

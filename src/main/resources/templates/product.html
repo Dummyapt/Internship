@@ -95,7 +95,7 @@
 
         $("#confirmOrder").on("click", function() {
             $.post({
-                url: "/confirmOrder",
+                url: "/productList",
                 data: {
                     "id" : $('#modalId').text(),
                     "power" : $('#modalPower').text(),
