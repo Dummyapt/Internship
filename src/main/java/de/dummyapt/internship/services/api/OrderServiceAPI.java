@@ -9,5 +9,5 @@ public interface OrderServiceAPI {
     List<Order> getAllOrders();
     Optional<Order> getOrderById(Integer id);
     Integer getOrderCount(Integer productId);
-    void saveOrder(Order order);
+    void saveOrder(Integer productId, Double power, Double price);
 }

@@ -34,7 +34,7 @@ public class OrderService implements OrderServiceAPI {
     }
 
     @Override
-    public void saveOrder(Order order) {
-        orderRepository.save(order);
+    public void saveOrder(Integer productId, Double power, Double price) {
+        orderRepository.saveOrder(productId, power, price);
     }
 }
