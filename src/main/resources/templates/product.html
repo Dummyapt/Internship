@@ -135,11 +135,19 @@
                     "power" : $('#modalPower').text(),
                     "cost" : $('#modalCost').text()
                 },
-                success: function() {
+                success: async function() {
                     $('#orderConfirmation').load("orderSuccess");
+                    await new Promise(r => setTimeout(r, 2_000));
+                    $('#cancelOrder').click();
+                    await new Promise(r => setTimeout(r, 500));
+                    location.reload();
                 },
-                error: function() {
+                error: async function() {
                     $('#orderConfirmation').load("orderError");
+                    await new Promise(r => setTimeout(r, 2_000));
+                    $('#cancelOrder').click();
+                    await new Promise(r => setTimeout(r, 500));
+                    location.reload();
                 }
             })
         });
