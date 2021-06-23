@@ -1,5 +1,6 @@
 package de.dummyapt.internship.models;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,13 +11,17 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     @Column(name = "id")
     private Integer id;
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+    @NotNull
     @Column(name = "power")
     private Double power;
+    @NotNull
     @Column(name = "price")
     private Double price;
 
