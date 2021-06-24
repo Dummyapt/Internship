@@ -1,3 +1,7 @@
+/**
+ * @author Duha Cinar
+ * @version 1.0
+ */
 package de.dummyapt.internship;
 
 import org.springframework.boot.SpringApplication;
