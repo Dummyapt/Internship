@@ -6,8 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller for Statistics service
+ */
 @Controller
 public class StatisticsController {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.StatisticsServiceAPI}
+     */
     private final StatisticsServiceAPI statisticsService;
 
     @Autowired
@@ -15,6 +21,13 @@ public class StatisticsController {
         this.statisticsService = statisticsService;
     }
 
+    /**
+     * Maps incoming GET requests for http://localhost:8080/stats
+     * @param model Model gets attributes (Thymeleaf variables)
+     *              that can be used in the returned html file
+     * @return stats.html from the resources/ directory
+     * with model attributes added in a hidden div container
+     */
     @GetMapping("/stats")
     public String showStats(Model model) {
         model.addAttribute("SHP", statisticsService.getStatisticsCountBy(1));
