@@ -33,12 +33,14 @@
 
             position: relative;
         }
+
         .ag-toaster {
             width: 340px;
             height: 217px;
 
             position: relative;
         }
+
         .ag-toaster_toast-handler {
             width: 155px;
             height: 200px;
@@ -51,6 +53,7 @@
             position: absolute;
             top: -150px;
         }
+
         .ag-toaster_toast {
             width: 159px;
             height: 171px;
@@ -58,6 +61,7 @@
             z-index: -1;
             position: relative;
         }
+
         .ag-toaster_front {
             width: 340px;
             height: 217px;
@@ -66,6 +70,7 @@
             z-index: 2;
             position: relative;
         }
+
         .ag-toaster_lever {
             width: 22px;
             height: 21px;
@@ -75,6 +80,7 @@
             top: 75px;
             right: 12px;
         }
+
         .ag-toaster_back {
             width: 340px;
             height: 18px;
@@ -91,16 +97,19 @@
                 -webkit-transform: translateY(2000px);
                 transform: translateY(2000px);
             }
+
             60% {
                 opacity: 1;
 
                 -webkit-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
+
             80% {
                 -webkit-transform: translateY(5px);
                 transform: translateY(5px);
             }
+
             100% {
                 -webkit-transform: translateY(0);
                 transform: translateY(0);
@@ -114,16 +123,19 @@
                 -moz-transform: translateY(2000px);
                 transform: translateY(2000px);
             }
+
             60% {
                 opacity: 1;
 
                 -moz-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
+
             80% {
                 -moz-transform: translateY(5px);
                 transform: translateY(5px);
             }
+
             100% {
                 -moz-transform: translateY(0);
                 transform: translateY(0);
@@ -138,6 +150,7 @@
                 -ms-transform: translateY(2000px);
                 transform: translateY(2000px);
             }
+
             60% {
                 opacity: 1;
                 filter: alpha(opacity=100);
@@ -145,10 +158,12 @@
                 -ms-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
+
             80% {
                 -ms-transform: translateY(5px);
                 transform: translateY(5px);
             }
+
             100% {
                 -ms-transform: translateY(0);
                 transform: translateY(0);
@@ -162,16 +177,19 @@
                 -o-transform: translateY(2000px);
                 transform: translateY(2000px);
             }
+
             60% {
                 opacity: 1;
 
                 -o-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
+
             80% {
                 -o-transform: translateY(5px);
                 transform: translateY(5px);
             }
+
             100% {
                 -o-transform: translateY(0);
                 transform: translateY(0);
@@ -188,6 +206,7 @@
                 -o-transform: translateY(2000px);
                 transform: translateY(2000px);
             }
+
             60% {
                 opacity: 1;
                 filter: alpha(opacity=100);
@@ -197,6 +216,7 @@
                 -o-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
+
             80% {
                 -webkit-transform: translateY(5px);
                 -moz-transform: translateY(5px);
@@ -204,6 +224,7 @@
                 -o-transform: translateY(5px);
                 transform: translateY(5px);
             }
+
             100% {
                 -webkit-transform: translateY(0);
                 -moz-transform: translateY(0);
@@ -236,33 +257,31 @@
 
         @media only screen and (max-width: 767px) {}
 
-        @media only screen and (max-width: 639px) {
+        @media only screen and (max-width: 639px) {}
 
-        }
-
-        @media only screen and (max-width: 479px) {
-
-        }
+        @media only screen and (max-width: 479px) {}
 
         @media (min-width: 768px) and (max-width: 979px) {}
 
         @media (min-width: 980px) and (max-width: 1161px) {}
     </style>
     <script>
-        (function ($) {
-            $(function () {
-
-                $().ready(function () {
-                    (function () {
+        (function($) {
+            $(function() {
+                $().ready(function() {
+                    (function() {
                         let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
                         window.requestAnimationFrame = requestAnimationFrame
                     })();
+
                     let canvas = document.getElementById('canvas-error');
+
                     if (canvas === null)return;
-                    setTimeout(function () {
+                    setTimeout(function() {
                         $('.js-toaster_lever').delay(200).animate({top: 30}, 100);
                         $('.js-toaster_toast').removeClass('js-ag-hide').addClass('js-ag-animated js-ag-bounce-in-up')
                     }, 800);
+
                     let ctx = canvas.getContext("2d"),
                         loading = true;
 
@@ -283,6 +302,7 @@
                             parts.push(new smoke(emitterX, emitterY))
                         }
                     }
+
                     function render() {
                         if (loading) {
                             load();
@@ -305,6 +325,7 @@
                         spawn();
                         requestAnimationFrame(render)
                     }
+
                     function smoke(x, y) {
                         this.x = x;
                         this.y = y;
@@ -317,7 +338,8 @@
                         this.velY = -1 - (Math.random() * 0.5);
                         this.velX = Math.floor(Math.random() * (-6) + 3) / 10
                     }
-                    smoke.prototype.update = function () {
+
+                    smoke.prototype.update = function() {
                         this.lifeTime = new Date().getTime() - this.startLife;
                         this.angle += 0.2;
                         let lifePerc = ((this.lifeTime / maxLifeTime) * 100);
@@ -327,10 +349,12 @@
                         this.x += this.velX;
                         this.y += this.velY
                     }
+
                     smokeImage.src = document.getElementsByTagName('img')[0].src;
-                    smokeImage.onload = function () {
+                    smokeImage.onload = function() {
                         loading = false
                     };
+
                     function load() {
                         if (loading) {
                             setTimeout(load, 3000);
@@ -338,10 +362,8 @@
                             render();
                         }
                     }
-
                     render();
                 });
-
             });
         })(jQuery);
     </script>
@@ -356,9 +378,11 @@
         <div class="ag-toaster-wrap">
             <div class="ag-toaster">
                 <div class="ag-toaster_back"></div>
+
                 <div class="ag-toaster_front">
                     <div class="js-toaster_lever ag-toaster_lever"></div>
                 </div>
+
                 <div class="ag-toaster_toast-handler">
                     <div class="js-toaster_toast ag-toaster_toast js-ag-hide">
                         <button class="btn btn-danger"><a href="https://github.com/Dummyapt/Internship/issues/new" style="color: white;">Create issue</a></button>

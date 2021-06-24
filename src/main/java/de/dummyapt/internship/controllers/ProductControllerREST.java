@@ -26,7 +26,7 @@ public class ProductControllerREST {
     private final OrderServiceAPI orderService;
 
     /**
-     * Internally auto wiring attributes with parameters
+     * Internally auto wiring class attributes with parameters
      */
     @Autowired
     public ProductControllerREST(ProductServiceAPI productService, OrderServiceAPI orderService) {

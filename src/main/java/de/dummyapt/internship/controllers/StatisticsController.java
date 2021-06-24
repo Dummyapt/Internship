@@ -16,6 +16,9 @@ public class StatisticsController {
      */
     private final StatisticsServiceAPI statisticsService;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public StatisticsController(StatisticsServiceAPI statisticsService) {
         this.statisticsService = statisticsService;
@@ -25,7 +28,7 @@ public class StatisticsController {
      * Maps incoming GET requests for http://localhost:8080/stats
      * @param model Model gets attributes (Thymeleaf variables)
      *              that can be used in the returned html file
-     * @return stats.html from the resources/ directory
+     * @return statistics.html from the resources/ directory
      * with model attributes added in a hidden div container
      */
     @GetMapping("/stats")
@@ -36,6 +39,6 @@ public class StatisticsController {
         model.addAttribute("Base", statisticsService.getStatisticsCountBy(4));
         model.addAttribute("Flex2", statisticsService.getStatisticsCountBy(5));
         model.addAttribute("Peak", statisticsService.getStatisticsCountBy(6));
-        return "stats";
+        return "statistics";
     }
 }
