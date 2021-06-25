@@ -11,17 +11,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * {@link org.springframework.web.bind.annotation.RestController} for Product service
+ */
 @RestController
 public class ProductControllerREST {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.ProductServiceAPI}
+     */
     private final ProductServiceAPI productService;
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.OrderServiceAPI}
+     */
     private final OrderServiceAPI orderService;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public ProductControllerREST(ProductServiceAPI productService, OrderServiceAPI orderService) {
         this.productService = productService;
         this.orderService = orderService;
     }
 
+    /**
+     * Maps incoming GET requests for http://localhost:8080/productList
+     * @return Dynamically generated table in form of html code
+     * with data retrieved from the database
+     */
     @GetMapping("/productList")
     public String showProducts() {
         List<Product> products;
@@ -69,6 +86,10 @@ public class ProductControllerREST {
         return stringBuilder.toString();
     }
 
+    /**
+     * Maps incoming POST requests for http://localhost:8080/confirmOrder
+     * @return New order in the corresponding database
+     */
     @PostMapping("/confirmOrder")
     public String confirmOrder(
             @RequestParam(value = "id") Integer id,
@@ -78,6 +99,10 @@ public class ProductControllerREST {
         return "";
     }
 
+    /**
+     * Maps incoming GET requests for http://localhost:8080/orderSuccess
+     * @return Bootstrap alert
+     */
     @GetMapping("/orderSuccess")
     public String showOrderSuccess() {
         return """
@@ -95,6 +120,10 @@ public class ProductControllerREST {
                 </div>""";
     }
 
+    /**
+     * Maps incoming GET requests for http://localhost:8080/orderError
+     * @return Bootstrap alert
+     */
     @GetMapping("/orderError")
     public String showOrderError() {
         return """
@@ -110,5 +139,17 @@ public class ProductControllerREST {
                         Ein Fehler ist aufgetreten!
                     </div>
                 </div>""";
+    }
+
+    /**
+     * Method for retrieving data from the database
+     * and create a JSON array
+     * @return api/v1/products with a JSON array
+     */
+    @GetMapping("/api/v1/products")
+    public List<Product> showAPI() {
+        List<Product> productList;
+        productList = productService.getAllProducts();
+        return productList;
     }
 }

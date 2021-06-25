@@ -11,8 +11,14 @@ import java.util.Optional;
 
 @Service
 public class OrderService implements OrderServiceAPI {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.CommodityServiceAPI}
+     */
     private final OrderRepository orderRepository;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
