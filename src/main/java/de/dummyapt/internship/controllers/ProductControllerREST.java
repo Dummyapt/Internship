@@ -140,4 +140,16 @@ public class ProductControllerREST {
                     </div>
                 </div>""";
     }
+
+    /**
+     * Method for retrieving data from the database
+     * and create a JSON array
+     * @return api/v1/products with a JSON array
+     */
+    @GetMapping("/api/v1/products")
+    public List<Product> showAPI() {
+        List<Product> productList;
+        productList = productService.getAllProducts();
+        return productList;
+    }
 }
