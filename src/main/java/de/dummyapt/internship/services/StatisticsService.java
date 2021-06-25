@@ -11,8 +11,14 @@ import java.util.Optional;
 
 @Service
 public class StatisticsService implements StatisticsServiceAPI {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.CommodityServiceAPI}
+     */
     private final StatisticsRepository statisticsRepository;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public StatisticsService(StatisticsRepository statisticsRepository) {
         this.statisticsRepository = statisticsRepository;
@@ -29,7 +35,7 @@ public class StatisticsService implements StatisticsServiceAPI {
     }
 
     @Override
-    public Integer getStatisticsCountBy(Integer id) {
+    public Integer getStatisticsCountById(Integer id) {
         return statisticsRepository.getStatisticsCountBy(id);
     }
 }

@@ -33,12 +33,12 @@ public class StatisticsController {
      */
     @GetMapping("/stats")
     public String showStats(Model model) {
-        model.addAttribute("SHP", statisticsService.getStatisticsCountBy(1));
-        model.addAttribute("Spot", statisticsService.getStatisticsCountBy(2));
-        model.addAttribute("Flex", statisticsService.getStatisticsCountBy(3));
-        model.addAttribute("Base", statisticsService.getStatisticsCountBy(4));
-        model.addAttribute("Flex2", statisticsService.getStatisticsCountBy(5));
-        model.addAttribute("Peak", statisticsService.getStatisticsCountBy(6));
+        model.addAttribute("SHP", statisticsService.getStatisticsCountById(1));
+        model.addAttribute("Spot", statisticsService.getStatisticsCountById(2));
+        model.addAttribute("Flex", statisticsService.getStatisticsCountById(3));
+        model.addAttribute("Base", statisticsService.getStatisticsCountById(4));
+        model.addAttribute("Flex2", statisticsService.getStatisticsCountById(5));
+        model.addAttribute("Peak", statisticsService.getStatisticsCountById(6));
         return "statistics";
     }
 }

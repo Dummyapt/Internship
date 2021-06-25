@@ -11,8 +11,14 @@ import java.util.Optional;
 
 @Service
 public class CommodityService implements CommodityServiceAPI {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.CommodityServiceAPI}
+     */
     private final CommodityRepository commodityRepository;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public CommodityService(CommodityRepository commodityRepository) {
         this.commodityRepository = commodityRepository;

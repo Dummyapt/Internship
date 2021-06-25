@@ -13,8 +13,14 @@ import java.util.List;
 @Service
 @EnableScheduling
 public class ProductService implements ProductServiceAPI {
+    /**
+     * Class attribute providing methods from {@link de.dummyapt.internship.services.api.CommodityServiceAPI}
+     */
     private final ProductRepository productRepository;
 
+    /**
+     * Internally auto wiring class attributes with parameters
+     */
     @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
