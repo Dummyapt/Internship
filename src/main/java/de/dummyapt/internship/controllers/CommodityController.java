@@ -7,4 +7,5 @@ import org.springframework.stereotype.Controller;
  * Controller for Commodity service
  */
 @Controller
+// Test
 public class CommodityController {}
