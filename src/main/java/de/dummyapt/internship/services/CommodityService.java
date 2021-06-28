@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for Commodity
+ */
 @Service
 public class CommodityService implements CommodityServiceAPI {
     /**
@@ -18,6 +21,7 @@ public class CommodityService implements CommodityServiceAPI {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param commodityRepository Needed for autowiring
      */
     @Autowired
     public CommodityService(CommodityRepository commodityRepository) {

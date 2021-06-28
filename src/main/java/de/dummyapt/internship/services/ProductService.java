@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for Product
+ */
 @Service
 @EnableScheduling
 public class ProductService implements ProductServiceAPI {
@@ -20,6 +23,7 @@ public class ProductService implements ProductServiceAPI {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param productRepository Needed for autowiring
      */
     @Autowired
     public ProductService(ProductRepository productRepository) {

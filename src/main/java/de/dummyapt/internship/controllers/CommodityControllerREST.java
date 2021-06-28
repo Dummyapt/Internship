@@ -20,6 +20,7 @@ public class CommodityControllerREST {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param commodityService Needed for autowiring
      */
     @Autowired
     public CommodityControllerREST(CommodityServiceAPI commodityService) {

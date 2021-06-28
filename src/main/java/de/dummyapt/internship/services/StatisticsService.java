@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for Statistics
+ */
 @Service
 public class StatisticsService implements StatisticsServiceAPI {
     /**
@@ -18,6 +21,7 @@ public class StatisticsService implements StatisticsServiceAPI {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param statisticsRepository Needed for autowiring
      */
     @Autowired
     public StatisticsService(StatisticsRepository statisticsRepository) {
