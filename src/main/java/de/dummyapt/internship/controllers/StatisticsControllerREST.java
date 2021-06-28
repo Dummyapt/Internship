@@ -20,6 +20,7 @@ public class StatisticsControllerREST {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param statisticsService Needed for autowiring
      */
     @Autowired
     public StatisticsControllerREST(StatisticsServiceAPI statisticsService) {

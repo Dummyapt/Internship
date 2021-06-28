@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Service class for Order
+ */
 @Service
 public class OrderService implements OrderServiceAPI {
     /**
@@ -18,6 +21,7 @@ public class OrderService implements OrderServiceAPI {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param orderRepository Needed for autowiring
      */
     @Autowired
     public OrderService(OrderRepository orderRepository) {

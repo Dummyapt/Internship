@@ -27,6 +27,8 @@ public class ProductControllerREST {
 
     /**
      * Internally auto wiring class attributes with parameters
+     * @param productService Needed for autowiring
+     * @param orderService Needed for autowiring
      */
     @Autowired
     public ProductControllerREST(ProductServiceAPI productService, OrderServiceAPI orderService) {
@@ -88,6 +90,9 @@ public class ProductControllerREST {
 
     /**
      * Maps incoming POST requests for http://localhost:8080/confirmOrder
+     * @param id Getting the value of posted data
+     * @param power Getting the value of posted data
+     * @param cost Getting the value of posted data
      * @return New order in the corresponding database
      */
     @PostMapping("/confirmOrder")
