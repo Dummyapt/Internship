@@ -1,5 +1,4 @@
 # About
-A simple eCommerce💲 I made while I was doing my internship.  
 The project was made using the following tools, SDKs and frameworks:  
 ☕Java (JDK 16)  
 🍃Spring 2.5.1  
