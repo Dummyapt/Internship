@@ -6,7 +6,7 @@ The project was made using the following tools, SDKs and frameworks:
 
 ## Dependencies
 - Spring Boot DevTools
-- Spring Security
+- Spring Security ❗❗❗DISABLED❗❗❗
 - Spring Data JPA
 - Spring Web
 - MariaDB Driver
