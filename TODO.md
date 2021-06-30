@@ -2,8 +2,7 @@
 
 ___
 
-### Log In & Register
-
+### Log In
   - HTML page
   - Ajax Call
     - Post data
