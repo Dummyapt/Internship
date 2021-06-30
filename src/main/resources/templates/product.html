@@ -5,26 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="assets/css/productPage.css" rel="stylesheet">
+    <script src="assets/js/productPage.js"></script>
     <title>Products | Webshop</title>
-    <script>
-        window.onload = function() {
-            $('#products').load("productList");
-        };
-        setInterval(function() {
-            $('#products').load("productList");
-        }, 30_000);
-    </script>
-    <style>
-        th, td {
-            max-width: 50px;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -107,8 +90,11 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light text-center">
         <div class="container">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" class="btn btn-danger" value="Logout">
+            </form>
             <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
         </div>
     </footer>
@@ -116,53 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous"></script>
-    <script>
-        $('#orderModal').on('show.bs.modal', function (event) {
-            const button = $(event.relatedTarget);
-
-            const productId = button.data('productid');
-            const productCurrentPrice = button.data('productcurrentprice');
-            const productName = button.data('productname');
-            const productCommodity = button.data('productcommodity');
-            const productPower = $(".valueInput" + productId).val();
-            const productPrice = productCurrentPrice * productPower;
-
-            $('#productId').text(productId);
-            $('#productCurrentPrice').text(productCurrentPrice);
-            $('#productName').text(productName);
-            $('#productCommodity').text(productCommodity);
-            $('#productPower').text(productPower);
-            $('#productPrice').text(parseFloat(productPrice).toFixed(2));
-        });
-
-        $("#confirmOrder").on("click", function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "/confirmOrder",
-                data: {
-                    "id" : $('#productId').text(),
-                    "power" : $('#productPower').text(),
-                    "cost" : $('#productPrice').text()
-                },
-                success: async function() {
-                    $('#orderConfirmation').load("orderSuccess");
-                    await new Promise(r => setTimeout(r, 2_000));
-                    $('#cancelOrder').click();
-                    await new Promise(r => setTimeout(r, 500));
-                    location.reload();
-                },
-                error: async function() {
-                    $('#orderConfirmation').load("orderError");
-                    await new Promise(r => setTimeout(r, 2_000));
-                    $('#cancelOrder').click();
-                    await new Promise(r => setTimeout(r, 500));
-                    location.reload();
-                }
-            })
-        });
-
-        $('#yearSpan').text(new Date().getFullYear());
-    </script>
+    <script src="assets/js/productPageAjax.js"></script>
+    <script src="assets/js/productPageDate.js"></script>
 </body>
 </html>

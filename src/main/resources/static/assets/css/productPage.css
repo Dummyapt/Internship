@@ -1,0 +1,9 @@
+th, td {
+    max-width: 50px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

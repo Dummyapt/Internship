@@ -2,7 +2,6 @@
 
 ### Log In
 
-  - HTML page
   - Ajax Call
     - Post data
   - Controller
