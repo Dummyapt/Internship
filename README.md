@@ -8,7 +8,6 @@ The project was made using the following tools, SDKs and frameworks:
 In addition:
 - Bootstrap
 - ChartJS
-- 
 - jQuery
 
 ## Dependencies
