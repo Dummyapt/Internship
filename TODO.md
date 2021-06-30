@@ -1,1 +1,14 @@
-![img_4.png](img_4.png)
+# TO-DO
+
+___
+
+### Log In & Register
+
+  - HTML page
+  - Ajax Call
+    - Post data
+  - Controller
+    - GetMapping
+    - RequestParam
+    - Authentication
+    - PostMapping
