@@ -2,10 +2,11 @@
 
 ### Log In
 
-  - Ajax Call
-    - Post data
-  - Controller
-    - GetMapping
-    - RequestParam
-    - Authentication
-    - PostMapping
+- Watch tutorial
+- Write and generate JavaDocs
+- Ajax Call
+  - Post data
+- Controller
+  - RequestParam
+  - Authentication
+  - PostMapping

@@ -1,3 +1,4 @@
+-- TODO: 30.06.2021 Watch tutorial and create table in database
 DROP TABLE IF EXISTS statistics;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS product;

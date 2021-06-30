@@ -221,25 +221,25 @@
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <div class="fadeIn first">
-                    <img src="https://die-degens.net/wp-content/uploads/2021/05/Welcome.png" id="icon" alt="User Icon" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dollarnote_hq.jpg/1200px-Dollarnote_hq.jpg" id="icon" alt="User Icon" />
                 </div>
 
-                <form name="loginForm" th:action="@{/login}" method="post">
+                <form th:action="@{/login}" method="post">
                     <fieldset>
                         <label for="username">Username</label>
                         <input type="text" class="fadeIn second" id="username" name="username">
                         <label for="password">Password</label>
                         <input type="password" class="fadeIn third" id="password" name="password">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary fadeIn fourth button">Log In</button>
+                        </div>
+                        <div th:if="${param.error}" class="alert alert-danger">
+                            Invalid combination username and password.
+                        </div>
+                        <div th:if="${param.logout}" class="alert alert-success">
+                            You have been logged out.
+                        </div>
                     </fieldset>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary fadeIn fourth button">Log In</button>
-                    </div>
-                    <div th:if="${param.error}" class="alert alert-danger">
-                        Invalid combination username and password.
-                    </div>
-                    <div th:if="${param.logout}" class="alert alert-success">
-                        You have been logged out.
-                    </div>
                 </form>
             </div>
         </div>
