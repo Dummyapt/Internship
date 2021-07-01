@@ -1,5 +1,6 @@
 -- TODO: 30.06.2021 Watch tutorial and create table in database
 DROP TABLE IF EXISTS statistics;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS commodity;
@@ -17,12 +18,22 @@ CREATE TABLE IF NOT EXISTS product (
     FOREIGN KEY (commodity_id) REFERENCES commodity (id)
 );
 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    active BOOL NOT NULL,
+    roles VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     power DEC(7,2) NOT NULL,
     price DEC(7,2) NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES product (id)
+    user_id INT,
+    FOREIGN KEY (product_id) REFERENCES product (id),
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS statistics (
