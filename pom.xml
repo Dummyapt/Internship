@@ -12,7 +12,6 @@
 
     <groupId>de.dummyapt</groupId>
     <artifactId>internship</artifactId>
-    <packaging>war</packaging>
     <version>1.0</version>
     <name>Internship</name>
     <description>Spring Boot project while doing my internship at Spie SAG.</description>
@@ -20,6 +19,22 @@
     <properties>
         <java.version>16</java.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-release</id>
+            <name>Spring release</name>
+            <url>https://repo.spring.io/release</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-release</id>
+            <name>Spring release</name>
+            <url>https://repo.spring.io/release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
