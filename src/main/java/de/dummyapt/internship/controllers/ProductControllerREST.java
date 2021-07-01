@@ -31,7 +31,8 @@ public class ProductControllerREST {
      * @param orderService Needed for autowiring
      */
     @Autowired
-    public ProductControllerREST(ProductServiceAPI productService, OrderServiceAPI orderService) {
+    public ProductControllerREST(ProductServiceAPI productService,
+                                 OrderServiceAPI orderService) {
         this.productService = productService;
         this.orderService = orderService;
     }

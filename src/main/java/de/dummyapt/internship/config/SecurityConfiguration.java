@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -39,8 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").hasRole("ADMIN")
-                .antMatchers("/stats").hasRole("ADMIN")
+                .antMatchers("/").hasRole("USER")
+                .antMatchers("/stats").hasRole("USER")
                 .antMatchers("/api/v1/commodities").permitAll()
                 .antMatchers("/api/v1/products").permitAll()
                 .antMatchers("/api/v1/statistics").permitAll()
