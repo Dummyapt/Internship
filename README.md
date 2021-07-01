@@ -13,8 +13,9 @@ In addition:
 ## Dependencies
 The following Maven dependencies are needed in order to work properly:
 
-- Spring Boot DevTools
+- Spring Native ❗❗❗**TESTING**❗❗❗
 - Spring Security ❗❗❗**TESTING**❗❗❗
+- Spring Boot DevTools
 - Spring Data JPA
 - Spring Web
 - MariaDB Driver
