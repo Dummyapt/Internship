@@ -2,7 +2,10 @@ package de.dummyapt.internship.models;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Spring model of the users table
@@ -10,17 +13,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users", schema = "internship")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
-public class User {
+public class MyUser {
     /**
      * Class attribute annotated as table column
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-    /**
-     * Class attribute annotated as table column
-     */
     @Column(name = "username")
     private String username;
     /**
@@ -36,6 +33,6 @@ public class User {
     /**
      * Class attribute annotated as table column
      */
-    @Column(name = "roles")
-    private String roles;
+    @Column(name = "authorities")
+    private String authorities;
 }

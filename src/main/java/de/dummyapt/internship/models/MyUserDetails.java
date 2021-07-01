@@ -6,24 +6,52 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
-// TODO: 30.06.2021 Watch tutorial
-// TODO: 30.06.2021 Create JavaDocs
+/**
+ * Technically a Spring model
+ */
 public class MyUserDetails implements UserDetails {
-    private String username;
+    /**
+     * Class attribute for username
+     */
+    private final String username;
+    /**
+     * Class attribute for password
+     */
+    private final String password;
+    /**
+     * Class attribute for active
+     */
+    private final boolean active;
+    /**
+     * Class attribute for authorities
+     */
+    private final List<GrantedAuthority> authorities;
 
-    public MyUserDetails(String username) {
-        this.username = username;
+    /**
+     * This constructor takes an user object and assigns
+     * the object's values to the attributes
+     * @param myUser User object
+     */
+    public MyUserDetails(MyUser myUser) {
+        this.username = myUser.getUsername();
+        this.password = myUser.getPassword();
+        this.active = myUser.isActive();
+        this.authorities = Arrays.stream(myUser.getAuthorities().split(","))
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return "admin";
+        return password;
     }
 
     @Override
@@ -48,6 +76,6 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return active;
     }
 }
