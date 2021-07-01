@@ -1,5 +1,6 @@
 package de.dummyapt.internship.repositories;
 
+import de.dummyapt.internship.models.MyUser;
 import de.dummyapt.internship.models.Order;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -23,7 +24,8 @@ public interface OrderRepository extends CrudRepository<Order, Integer> {
      * @param productId Product id
      * @param power Power value
      * @param price Total cost
+     * @param user User making order
      */
-    @Query(value = "INSERT INTO orders (product_id, power, price) VALUES (:productId, :power, :price)", nativeQuery = true)
-    void saveOrder(Integer productId, Double power, Double price);
+    @Query(value = "INSERT INTO orders (product_id, power, price, user_username) VALUES (:productId, :power, :price, :user)", nativeQuery = true)
+    void saveOrder(Integer productId, Double power, Double price, String user);
 }

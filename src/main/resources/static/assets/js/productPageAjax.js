@@ -24,7 +24,8 @@ $("#confirmOrder").on("click", function(e) {
         data: {
             "id" : $('#productId').text(),
             "power" : $('#productPower').text(),
-            "cost" : $('#productPrice').text()
+            "cost" : $('#productPrice').text(),
+            "user" : $('#user').text()
         },
         success: async function() {
             $('#orderConfirmation').load("orderSuccess");

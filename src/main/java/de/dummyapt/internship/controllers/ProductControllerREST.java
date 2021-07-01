@@ -37,6 +37,7 @@ public class ProductControllerREST {
         this.orderService = orderService;
     }
 
+    // TODO: 01.07.2021 Add user as request parameter provided by myUserService
     /**
      * Maps incoming GET requests for http://localhost:8080/productList
      * @return Dynamically generated table in form of html code
@@ -94,14 +95,16 @@ public class ProductControllerREST {
      * @param id Getting the value of posted data
      * @param power Getting the value of posted data
      * @param cost Getting the value of posted data
+     * @param user Getting the value of posted data
      * @return New order in the corresponding database
      */
     @PostMapping("/confirmOrder")
     public String confirmOrder(
             @RequestParam(value = "id") Integer id,
             @RequestParam(value = "power") Double power,
-            @RequestParam(value = "cost") Double cost) {
-        orderService.saveOrder(id, power, cost);
+            @RequestParam(value = "cost") Double cost,
+            @RequestParam(value = "user") String user) {
+        orderService.saveOrder(id, power, cost, user);
         return "";
     }
 

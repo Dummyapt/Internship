@@ -35,5 +35,5 @@ public interface OrderServiceAPI {
      * @param power Power value
      * @param price Total cost
      */
-    void saveOrder(Integer productId, Double power, Double price);
+    void saveOrder(Integer productId, Double power, Double price, String user);
 }

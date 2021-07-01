@@ -34,3 +34,7 @@ public class Application extends SpringBootServletInitializer {
         return builder.sources(Application.class);
     }
 }
+
+// TODO: 01.07.2021 Remove unused imports
+// TODO: 01.07.2021 Commit and push to GitHub
+// TODO: 01.07.2021 Add Thymeleaf variable

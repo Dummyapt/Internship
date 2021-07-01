@@ -34,4 +34,10 @@ public class Order {
      */
     @Column(name = "price")
     private Double price;
+    /**
+     * Class attribute annotated as table column
+     */
+    @ManyToOne
+    @JoinColumn(name = "user_username")
+    private MyUser user;
 }

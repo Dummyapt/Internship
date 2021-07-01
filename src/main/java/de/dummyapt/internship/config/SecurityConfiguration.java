@@ -35,11 +35,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService);
     }
 
+    // TODO: 01.07.2021 Add role checking
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").hasRole("USER")
-                .antMatchers("/stats").hasRole("USER")
+                .antMatchers("/").permitAll()
+                .antMatchers("/stats").permitAll()
                 .antMatchers("/api/v1/commodities").permitAll()
                 .antMatchers("/api/v1/products").permitAll()
                 .antMatchers("/api/v1/statistics").permitAll()
