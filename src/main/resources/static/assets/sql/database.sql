@@ -6,20 +6,23 @@ DROP TABLE IF EXISTS commodity;
 
 CREATE TABLE commodity (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS product (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     current_price DEC(7,2) NOT NULL,
     commodity_id INT NOT NULL,
     FOREIGN KEY (commodity_id) REFERENCES commodity (id)
 );
 
 CREATE TABLE users (
-    username VARCHAR(50) NOT NULL PRIMARY KEY,
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    username VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
     password VARCHAR(100) NOT NULL,
+    locked BOOL NOT NULL,
     active BOOL NOT NULL,
     roles VARCHAR(100) NOT NULL
 );
@@ -29,9 +32,9 @@ CREATE TABLE IF NOT EXISTS orders (
     product_id INT NOT NULL,
     power DEC(7,2) NOT NULL,
     price DEC(7,2) NOT NULL,
-    user_username VARCHAR(100) NOT NULL,
+    user_id VARCHAR(100) NOT NULL,
     FOREIGN KEY (product_id) REFERENCES product (id),
-    FOREIGN KEY (user_username) REFERENCES users (username)
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS statistics (

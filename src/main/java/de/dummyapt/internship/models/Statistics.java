@@ -17,10 +17,10 @@ public class Statistics {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     /**
      * Class attribute annotated as table column
      */
     @Column(name = "count")
-    private Integer count;
+    private Long count;
 }
