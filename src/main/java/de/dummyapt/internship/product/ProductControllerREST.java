@@ -36,7 +36,6 @@ public class ProductControllerREST {
         this.orderService = orderService;
     }
 
-    // TODO: 01.07.2021 Add user as request parameter provided by myUserService
     /**
      * Maps incoming GET requests for http://localhost:8080/productList
      * @return Dynamically generated table in form of html code
