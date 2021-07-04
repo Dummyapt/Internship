@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Spring model of the users table
+ * Spring model of the app_user table
  */
 @Entity
 @Table

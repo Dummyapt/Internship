@@ -29,6 +29,8 @@ public class AppUserService implements UserDetailsService {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
         if (userExists) {
+            // TODO: 05.07.2021 Check of attributes are the same
+            // TODO: 05.07.2021 If email not confirmed, send confirmation email again
             throw new IllegalStateException("Email taken!");
         }
 
@@ -44,13 +46,10 @@ public class AppUserService implements UserDetailsService {
                 appUser
         );
         confirmationTokenService.saveConfirmationToken(confirmationToken);
-
-        // TODO: 04.07.2021 Send email
-
         return token;
     }
 
-    public int enableAppUser(String email) {
-        return appUserRepository.enableAppUser(email);
+    public void enableAppUser(String email) {
+        appUserRepository.enableAppUser(email);
     }
 }
