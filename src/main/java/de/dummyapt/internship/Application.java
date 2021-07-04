@@ -1,11 +1,9 @@
 package de.dummyapt.internship;
 
-import de.dummyapt.internship.config.MyUserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Start point of Spring application
@@ -13,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @version 1.0
  */
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = MyUserRepository.class)
 public class Application extends SpringBootServletInitializer {
     /**
      * main()-method starting the spring application with passing
