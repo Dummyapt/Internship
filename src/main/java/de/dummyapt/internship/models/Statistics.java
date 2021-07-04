@@ -23,4 +23,12 @@ public class Statistics {
      */
     @Column(name = "count")
     private Long count;
+
+    /**
+     * Constructor with no id
+     * @param count Orders count
+     */
+    public Statistics(Long count) {
+        this.count = count;
+    }
 }

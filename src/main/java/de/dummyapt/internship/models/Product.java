@@ -34,4 +34,16 @@ public class Product {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "commodity_id")
     private Commodity commodity;
+
+    /**
+     * Constructor with no id
+     * @param name Product name
+     * @param currentPrice Current price
+     * @param commodity Belonging commodity
+     */
+    public Product(String name, Double currentPrice, Commodity commodity) {
+        this.name = name;
+        this.currentPrice = currentPrice;
+        this.commodity = commodity;
+    }
 }

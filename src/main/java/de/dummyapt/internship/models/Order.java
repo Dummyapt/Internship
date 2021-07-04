@@ -39,6 +39,20 @@ public class Order {
      * Class attribute annotated as table column
      */
     @ManyToOne
-    @JoinColumn(name = "user_username")
+    @JoinColumn(name = "user_id")
     private MyUser user;
+
+    /**
+     * Constructor with no id
+     * @param product Product id
+     * @param power Ordered power
+     * @param price Total cost
+     * @param user Ordering User
+     */
+    public Order(Product product, Double power, Double price, MyUser user) {
+        this.product = product;
+        this.power = power;
+        this.price = price;
+        this.user = user;
+    }
 }

@@ -23,4 +23,12 @@ public class Commodity {
      */
     @Column(name = "name")
     private String name;
+
+    /**
+     * Constructor with no id
+     * @param name Commodity name
+     */
+    public Commodity(String name) {
+        this.name = name;
+    }
 }
