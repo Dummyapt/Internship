@@ -1,5 +1,6 @@
 package de.dummyapt.internship.models;
 
+import de.dummyapt.internship.config.MyUser;
 import lombok.*;
 
 import javax.persistence.*;

@@ -38,7 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     // TODO: 01.07.2021 Add role checking
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/stats").permitAll()
                 .antMatchers("/api/v1/commodities").permitAll()

@@ -1,6 +1,6 @@
-package de.dummyapt.internship.repositories;
+package de.dummyapt.internship.config;
 
-import de.dummyapt.internship.models.MyUser;
+import de.dummyapt.internship.config.MyUser;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
@@ -12,7 +12,7 @@ public interface MyUserRepository extends CrudRepository<MyUser, Integer> {
     /**
      * Method for selecting a specific record
      * @param username Name of the user
-     * @return MyUser by the given username
+     * @return User by the given username
      */
     Optional<MyUser> findByUsername(String username);
 }

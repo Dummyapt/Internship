@@ -1,6 +1,5 @@
 package de.dummyapt.internship.services;
 
-import de.dummyapt.internship.models.MyUser;
 import de.dummyapt.internship.models.Order;
 import de.dummyapt.internship.repositories.OrderRepository;
 import de.dummyapt.internship.services.api.OrderServiceAPI;

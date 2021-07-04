@@ -1,8 +1,5 @@
-package de.dummyapt.internship.services;
+package de.dummyapt.internship.config;
 
-import de.dummyapt.internship.models.MyUser;
-import de.dummyapt.internship.models.MyUserDetails;
-import de.dummyapt.internship.repositories.MyUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,9 +12,9 @@ import java.util.Optional;
  * Service class for MyUserDetails and partially MyUser
  */
 @Service
-public class MyUserService implements UserDetailsService {
+public class MyUserService implements MyUserServiceAPI, UserDetailsService {
     /**
-     * Class attribute providing methods from {@link de.dummyapt.internship.repositories.MyUserRepository}
+     * Class attribute providing methods from {@link MyUserRepository}
      */
     private final MyUserRepository myUserRepository;
 
@@ -37,5 +34,10 @@ public class MyUserService implements UserDetailsService {
         user.orElseThrow(() -> new UsernameNotFoundException("User " + username + " wasn't found!"));
 
         return user.map(MyUserDetails::new).get();
+    }
+
+    @Override
+    public String findByUsername(String username) {
+        return myUserRepository.findByUsername(username).get().getUsername();
     }
 }

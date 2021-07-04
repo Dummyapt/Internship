@@ -1,4 +1,4 @@
-package de.dummyapt.internship.models;
+package de.dummyapt.internship.config;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

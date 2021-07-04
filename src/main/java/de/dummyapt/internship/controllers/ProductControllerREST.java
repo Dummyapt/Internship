@@ -1,6 +1,9 @@
 package de.dummyapt.internship.controllers;
 
+import de.dummyapt.internship.config.MyUser;
+import de.dummyapt.internship.config.MyUserServiceAPI;
 import de.dummyapt.internship.models.Product;
+import de.dummyapt.internship.config.MyUserRepository;
 import de.dummyapt.internship.services.api.OrderServiceAPI;
 import de.dummyapt.internship.services.api.ProductServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,10 @@ public class ProductControllerREST {
      * Class attribute providing methods from {@link de.dummyapt.internship.services.api.OrderServiceAPI}
      */
     private final OrderServiceAPI orderService;
+    /**
+     * Class attribute providing methods from {@link MyUserServiceAPI}
+     */
+    private final MyUserRepository myUserRepository;
 
     /**
      * Internally auto wiring class attributes with parameters
@@ -32,9 +39,11 @@ public class ProductControllerREST {
      */
     @Autowired
     public ProductControllerREST(ProductServiceAPI productService,
-                                 OrderServiceAPI orderService) {
+                                 OrderServiceAPI orderService,
+                                 MyUserRepository myUserRepository) {
         this.productService = productService;
         this.orderService = orderService;
+        this.myUserRepository = myUserRepository;
     }
 
     // TODO: 01.07.2021 Add user as request parameter provided by myUserService
@@ -81,6 +90,7 @@ public class ProductControllerREST {
                     .append("data-productname=").append("\"").append(product.getName()).append("\"")
                     .append("data-productcurrentprice=").append("\"").append(product.getCurrentPrice()).append("\"")
                     .append("data-productcommodity=").append("\"").append(product.getCommodity().getName()).append("\"")
+                    .append("data-customer=").append("\"").append("COMING SOON").append("\"")
                     .append(">").append("Kaufen</a>")
                     .append("</td></tr>");
         }
