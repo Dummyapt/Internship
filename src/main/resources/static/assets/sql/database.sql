@@ -5,41 +5,41 @@ DROP TABLE IF EXISTS product;
 DROP TABLE IF EXISTS commodity;
 
 CREATE TABLE commodity (
-    id LONG AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS product (
-    id LONG AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     current_price DEC(7,2) NOT NULL,
-    commodity_id LONG NOT NULL,
+    commodity_id INT NOT NULL,
     FOREIGN KEY (commodity_id) REFERENCES commodity (id)
 );
 
 CREATE TABLE users (
-    id LONG AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    username VARCHAR NOT NULL,
-    email VARCHAR NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
+    roles VARCHAR(100) NOT NULL,
     locked BOOL NOT NULL,
-    active BOOL NOT NULL,
-    roles VARCHAR(100) NOT NULL
+    active BOOL NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS orders (
-    id LONG AUTO_INCREMENT PRIMARY KEY,
-    product_id LONG NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
     power DEC(7,2) NOT NULL,
     price DEC(7,2) NOT NULL,
-    user_id VARCHAR(100) NOT NULL,
+    user_id INT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES product (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE IF NOT EXISTS statistics (
-    id LONG AUTO_INCREMENT PRIMARY KEY,
-    count LONG NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    count INT NOT NULL
 );
 
 DELIMITER //
