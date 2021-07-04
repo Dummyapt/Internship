@@ -90,6 +90,7 @@ public class ProductControllerREST {
                     .append("data-productname=").append("\"").append(product.getName()).append("\"")
                     .append("data-productcurrentprice=").append("\"").append(product.getCurrentPrice()).append("\"")
                     .append("data-productcommodity=").append("\"").append(product.getCommodity().getName()).append("\"")
+                    // TODO: 04.07.2021 Add parameter
                     .append("data-customer=").append("\"").append("COMING SOON").append("\"")
                     .append(">").append("Kaufen</a>")
                     .append("</td></tr>");

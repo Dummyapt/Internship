@@ -26,9 +26,9 @@ public class MyUserDetails implements UserDetails {
      */
     private final boolean active;
     /**
-     * Class attribute for authorities
+     * Class attribute for roles
      */
-    private final List<GrantedAuthority> authorities;
+    private final List<GrantedAuthority> roles;
 
     /**
      * This constructor takes an user object and assigns
@@ -39,14 +39,14 @@ public class MyUserDetails implements UserDetails {
         this.username = myUser.getUsername();
         this.password = myUser.getPassword();
         this.active = myUser.isActive();
-        this.authorities = Arrays.stream(myUser.getAuthorities().split(","))
+        this.roles = Arrays.stream(myUser.getAuthorities().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return roles;
     }
 
     @Override
