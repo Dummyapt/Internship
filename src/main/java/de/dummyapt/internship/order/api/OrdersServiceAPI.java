@@ -34,6 +34,7 @@ public interface OrdersServiceAPI {
      * @param productId Product id
      * @param power Power value
      * @param price Total cost
+     * @param user User id
      */
     void saveOrder(Integer productId, Double power, Double price, String user);
 }

@@ -7,6 +7,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
     const productCommodity = button.data('productcommodity');
     const productPower = $(".valueInput" + productId).val();
     const productPrice = productCurrentPrice * productPower;
+    const productCustomer = button.data('customer');
 
     $('#productId').text(productId);
     $('#productCurrentPrice').text(productCurrentPrice);
@@ -14,6 +15,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
     $('#productCommodity').text(productCommodity);
     $('#productPower').text(productPower);
     $('#productPrice').text(parseFloat(productPrice).toFixed(2));
+    $('#customer').text(productCustomer)
 });
 
 $("#confirmOrder").on("click", function(e) {
@@ -24,7 +26,8 @@ $("#confirmOrder").on("click", function(e) {
         data: {
             "id" : $('#productId').text(),
             "power" : $('#productPower').text(),
-            "cost" : $('#productPrice').text()
+            "cost" : $('#productPrice').text(),
+            "user" : $('#customer').text()
         },
         success: async function() {
             $('#orderConfirmation').load("orderSuccess");

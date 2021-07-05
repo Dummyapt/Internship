@@ -2,7 +2,8 @@ package de.dummyapt.internship.product;
 
 import de.dummyapt.internship.order.api.OrdersServiceAPI;
 import de.dummyapt.internship.product.api.ProductServiceAPI;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import java.util.List;
  * {@link org.springframework.web.bind.annotation.RestController} for Product service
  */
 @RestController
+@AllArgsConstructor
 public class ProductControllerREST {
     /**
      * Class attribute providing methods from {@link ProductServiceAPI}
@@ -23,18 +25,6 @@ public class ProductControllerREST {
      * Class attribute providing methods from {@link OrdersServiceAPI}
      */
     private final OrdersServiceAPI orderService;
-
-    /**
-     * Internally auto wiring class attributes with parameters
-     * @param productService Needed for autowiring
-     * @param orderService Needed for autowiring
-     */
-    @Autowired
-    public ProductControllerREST(ProductServiceAPI productService,
-                                 OrdersServiceAPI orderService) {
-        this.productService = productService;
-        this.orderService = orderService;
-    }
 
     /**
      * Maps incoming GET requests for http://localhost:8080/productList
@@ -62,6 +52,7 @@ public class ProductControllerREST {
         var openAndClose = "</td><td>";
         var i = 0;
         for (Product product : products) {
+            var auth = SecurityContextHolder.getContext().getAuthentication();
             i++;
             stringBuilder.append("<tr><td>")
                     .append(product.getId()).append(openAndClose)
@@ -79,6 +70,7 @@ public class ProductControllerREST {
                     .append("data-productname=").append("\"").append(product.getName()).append("\"")
                     .append("data-productcurrentprice=").append("\"").append(product.getCurrentPrice()).append("\"")
                     .append("data-productcommodity=").append("\"").append(product.getCommodity().getName()).append("\"")
+                    .append("data-customer=").append("\"").append(auth.getName()).append("\"")
                     .append(">").append("Kaufen</a>")
                     .append("</td></tr>");
         }

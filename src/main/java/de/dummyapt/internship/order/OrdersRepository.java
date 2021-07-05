@@ -26,6 +26,6 @@ public interface OrdersRepository extends CrudRepository<Orders, Integer> {
      * @param price Total cost
      * @param user User making order
      */
-    @Query(value = "INSERT INTO orders (product_id, power, price, app_user_id) VALUES (:productId, :power, :price, :user)", nativeQuery = true)
+    @Query(value = "INSERT INTO orders (product_id, power, price, customer) VALUES (:productId, :power, :price, :user)", nativeQuery = true)
     void saveOrder(Integer productId, Double power, Double price, String user);
 }

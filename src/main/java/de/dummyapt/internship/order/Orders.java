@@ -41,21 +41,19 @@ public class Orders {
     /**
      * Class attribute annotated as table column
      */
-    @ManyToOne
-    @JoinColumn(name = "app_user_id")
-    private AppUser appUser;
+    private String customer;
 
     /**
      * Constructor with no id
      * @param product Product id
      * @param power Ordered power
      * @param price Total cost
-     * @param appUser Ordering User
+     * @param customer Ordering customer
      */
-    public Orders(Product product, Double power, Double price, AppUser appUser) {
+    public Orders(Product product, Double power, Double price, String customer) {
         this.product = product;
         this.power = power;
         this.price = price;
-        this.appUser = appUser;
+        this.customer = customer;
     }
 }

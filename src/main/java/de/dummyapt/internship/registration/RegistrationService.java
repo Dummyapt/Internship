@@ -4,7 +4,6 @@ import de.dummyapt.internship.appuser.AppUser;
 import de.dummyapt.internship.appuser.AppUserRole;
 import de.dummyapt.internship.appuser.AppUserService;
 import de.dummyapt.internship.email.EmailSender;
-import de.dummyapt.internship.registration.token.ConfirmationToken;
 import de.dummyapt.internship.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,7 @@ public class RegistrationService {
 
     @Transactional
     public String confirmToken(String token) {
-        ConfirmationToken confirmationToken = confirmationTokenService.getToken(token)
+        var confirmationToken = confirmationTokenService.getToken(token)
                 .orElseThrow(() ->
                         new IllegalStateException("token not found"));
 
