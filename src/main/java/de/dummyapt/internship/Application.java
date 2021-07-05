@@ -31,8 +31,3 @@ public class Application extends SpringBootServletInitializer {
         return builder.sources(Application.class);
     }
 }
-
-// TODO: 05.07.2021 Change all Controllers etc. to @AllArgsConstructor
-// TODO: 05.07.2021 JavaDoc comments
-// TODO: 05.07.2021 Commit and push to GitHub
-// TODO: 05.07.2021 Connect webshop with login system

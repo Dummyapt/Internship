@@ -17,3 +17,10 @@
 ### GitHub
 
 - Commit and push changes
+
+### Java
+
+- Change all Controllers etc. to @AllArgsConstructor
+- JavaDoc comments
+- Commit and push to GitHub
+- Connect webshop with login system
