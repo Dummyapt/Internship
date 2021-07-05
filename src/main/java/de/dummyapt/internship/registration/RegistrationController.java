@@ -7,15 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 @AllArgsConstructor
 public class RegistrationController {
-    private final RegistrationService registrationService;
-
-    @PostMapping
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
-    }
-
-    @GetMapping("/confirm")
-    public String confirm(@RequestParam("token") String token) {
-        return registrationService.confirmToken(token);
+    @GetMapping("/register")
+    public String register() {
+        return "register";
     }
 }
