@@ -14,7 +14,7 @@ In addition:
 The following Maven dependencies are needed in order to work properly:
 
 - Spring Security ❗❗❗**TESTING**❗❗❗
-- Spring JavaMailSender ❗❗❗**TESTING**❗❗❗
+- Spring JavaMailSender
 - Spring Boot DevTools
 - Spring Data JPA
 - Spring Web

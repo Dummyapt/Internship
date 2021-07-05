@@ -1,5 +1,8 @@
 # TO-DO
 
+- Create Register page
+  - Enable CSRF
+  - Secure POST requests
 - Clean up database
 - Update README
 
