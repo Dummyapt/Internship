@@ -40,9 +40,10 @@ public class ProductControllerREST {
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
+                            <th>Vorheriger Preis</th>
                             <th>Aktueller Preis</th>
+                            <th>Preisentwicklung</th>
                             <th>Commodity</th>
                             <th>Leistung</th>
                             <th>Kaufen</th>
@@ -55,9 +56,15 @@ public class ProductControllerREST {
             var auth = SecurityContextHolder.getContext().getAuthentication();
             i++;
             stringBuilder.append("<tr><td>")
-                    .append(product.getId()).append(openAndClose)
                     .append(product.getName()).append(openAndClose)
-                    .append(product.getCurrentPrice()).append("€").append(openAndClose)
+                    .append(product.getPreviousPrice()).append("€").append(openAndClose)
+                    .append(product.getCurrentPrice()).append("€").append(openAndClose);
+            if (product.getPreviousPrice() > product.getCurrentPrice()) {
+                stringBuilder.append("<span style=\"color:green; font-size:30px;\">").append("↑").append("</span>").append(openAndClose);
+            } else if (product.getPreviousPrice() < product.getCurrentPrice()) {
+                stringBuilder.append("<span style=\"color:red; font-size:30px;\">").append("↓").append("</span>").append(openAndClose);
+            }
+            stringBuilder
                     .append(product.getCommodity().getName()).append(openAndClose)
                     .append("<input type=number min=0 class=\"valueInput").append(i).append("\">").append(openAndClose)
                     .append("<a ")
@@ -68,6 +75,7 @@ public class ProductControllerREST {
                     .append("data-bs-target=").append("\"").append("#orderModal").append("\"")
                     .append("data-productid=").append("\"").append(product.getId()).append("\"")
                     .append("data-productname=").append("\"").append(product.getName()).append("\"")
+                    .append("data-productpreviousprice=").append("\"").append(product.getPreviousPrice()).append("\"")
                     .append("data-productcurrentprice=").append("\"").append(product.getCurrentPrice()).append("\"")
                     .append("data-productcommodity=").append("\"").append(product.getCommodity().getName()).append("\"")
                     .append("data-customer=").append("\"").append(auth.getName()).append("\"")

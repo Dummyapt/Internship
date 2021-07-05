@@ -5,7 +5,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
     const productCurrentPrice = button.data('productcurrentprice');
     const productName = button.data('productname');
     const productCommodity = button.data('productcommodity');
-    const productPower = $(".valueInput" + productId).val();
+    const productPower = parseFloat($(".valueInput" + productId).val()).toFixed(2);
     const productPrice = productCurrentPrice * productPower;
     const productCustomer = button.data('customer');
 

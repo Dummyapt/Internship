@@ -26,6 +26,11 @@ public class Product {
      * Class attribute annotated as table column
      */
     @Column(columnDefinition = "DEC(5,2)")
+    private Double previousPrice;
+    /**
+     * Class attribute annotated as table column
+     */
+    @Column(columnDefinition = "DEC(5,2)")
     private Double currentPrice;
     /**
      * Class attribute annotated as table column

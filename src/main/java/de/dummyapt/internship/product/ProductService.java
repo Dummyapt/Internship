@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductService implements ProductServiceAPI {
     /**
-     * Class attribute providing methods from {@link CommodityServiceAPI}
+     * Class attribute providing methods from {@link ProductServiceAPI}
      */
     private final ProductRepository productRepository;
 
@@ -34,6 +34,7 @@ public class ProductService implements ProductServiceAPI {
     @Override
     @Scheduled(fixedDelay = 30_000)
     public void updatePrices() {
+        productRepository.copyCurrentPrices();
         productRepository.updatePrices();
     }
 }

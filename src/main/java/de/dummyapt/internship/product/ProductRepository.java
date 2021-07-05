@@ -20,6 +20,14 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     void updatePrices();
 
     /**
+     * Query for showing the price development
+     */
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE product SET previous_price = current_price", nativeQuery = true)
+    void copyCurrentPrices();
+
+    /**
      * Method for finding a product by the passed id
      * @param id Product id that should be chosen
      * @return Object of Product
