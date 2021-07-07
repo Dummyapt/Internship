@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // TODO: 07.07.2021 Check whether a user is an admin or not
                 .antMatchers("/register/**").permitAll()
+                .antMatchers("/stats").hasRole("ADMIN")
                 .antMatchers("/").permitAll()
                 .antMatchers("/api/v*/***").permitAll()
                 .anyRequest()
