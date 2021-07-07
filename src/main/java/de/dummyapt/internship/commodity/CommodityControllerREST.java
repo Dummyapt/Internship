@@ -1,30 +1,22 @@
 package de.dummyapt.internship.commodity;
 
 import de.dummyapt.internship.commodity.api.CommodityServiceAPI;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 /**
- * {@link org.springframework.web.bind.annotation.RestController} for Commodity service
+ * {@link RestController} for {@link CommodityService}
  */
 @RestController
+@AllArgsConstructor
 public class CommodityControllerREST {
     /**
      * Class attribute providing methods from {@link CommodityServiceAPI}
      */
     private final CommodityServiceAPI commodityService;
-
-    /**
-     * Internally auto wiring class attributes with parameters
-     * @param commodityService Needed for autowiring
-     */
-    @Autowired
-    public CommodityControllerREST(CommodityServiceAPI commodityService) {
-        this.commodityService = commodityService;
-    }
 
     /**
      * Method for retrieving data from the database

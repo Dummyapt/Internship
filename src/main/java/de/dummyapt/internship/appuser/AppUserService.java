@@ -12,11 +12,23 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+/**
+ * {@link Service} class for {@link AppUser}
+ */
 @Service
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
+    /**
+     * Class attribute providing methods from {@link AppUserRepository}
+     */
     private final AppUserRepository appUserRepository;
+    /**
+     * Class attribute providing methods from {@link BCryptPasswordEncoder}
+     */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    /**
+     * Class attribute providing methods from {@link ConfirmationTokenService}
+     */
     private final ConfirmationTokenService confirmationTokenService;
 
     @Override
@@ -25,6 +37,11 @@ public class AppUserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User with the given email was not found!"));
     }
 
+    /**
+     * Method for signing up a new user
+     * @param appUser User object
+     * @return Token
+     */
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
@@ -49,6 +66,10 @@ public class AppUserService implements UserDetailsService {
         return token;
     }
 
+    /**
+     * Method enabling a user
+     * @param email User email address
+     */
     public void enableAppUser(String email) {
         appUserRepository.enableAppUser(email);
     }

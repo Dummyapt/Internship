@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Controller for Product service
+ * {@link org.springframework.stereotype.Controller} for {@link ProductService}
  */
 @Controller
 public class ProductController {

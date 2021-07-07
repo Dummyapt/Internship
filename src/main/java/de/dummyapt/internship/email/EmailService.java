@@ -10,10 +10,19 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 
+/**
+ * {@link Service} class for {@link de.dummyapt.internship.registration.RegistrationRequest}
+ */
 @Service
 @AllArgsConstructor
 public class EmailService implements EmailSender {
+    /**
+     * Class attribute providing methods from {@link Logger}
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
+    /**
+     * Class attribute providing methods from {@link JavaMailSender}
+     */
     private final JavaMailSender mailSender;
 
     @Override

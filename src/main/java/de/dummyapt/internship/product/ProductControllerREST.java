@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * {@link org.springframework.web.bind.annotation.RestController} for Product service
+ * {@link RestController} for {@link ProductService}
  */
 @RestController
 @AllArgsConstructor

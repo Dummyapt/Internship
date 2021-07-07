@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Controller for Login service
+ * {@link org.springframework.stereotype.Controller} for Login page
  */
 @Controller
 public class LoginController {

@@ -6,9 +6,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
- * Start point of Spring application
+ * Start point of {@link SpringBootApplication}
  * @author Duha Cinar
- * @version 1.0
+ * @version 1.2
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
@@ -22,7 +22,7 @@ public class Application extends SpringBootServletInitializer {
     }
 
     /**
-     * Spring application builder for buildung executables (.jar/.war)
+     * {@link SpringApplicationBuilder} for buildung executables (.jar/.war)
      * @param builder Passing itself as it is required to use it
      * @return building resources for the artifact builder to create a .war file
      */

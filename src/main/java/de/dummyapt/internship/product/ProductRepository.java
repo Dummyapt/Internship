@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Interface providing {@link org.springframework.data.repository.CrudRepository} methods
+ * Interface providing {@link CrudRepository} methods
  */
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {

@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
+/**
+ * Service class for {@link RegistrationControllerREST}
+ */
 @Service
 @AllArgsConstructor
 public class RegistrationService {

@@ -1,29 +1,21 @@
 package de.dummyapt.internship.statistics;
 
 import de.dummyapt.internship.statistics.api.StatisticsServiceAPI;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Controller for Statistics service
+ * {@link org.springframework.stereotype.Controller} for Statistics page
  */
 @Controller
+@AllArgsConstructor
 public class StatisticsController {
     /**
      * Class attribute providing methods from {@link StatisticsServiceAPI}
      */
     private final StatisticsServiceAPI statisticsService;
-
-    /**
-     * Internally auto wiring class attributes with parameters
-     * @param statisticsService Needed for autowiring
-     */
-    @Autowired
-    public StatisticsController(StatisticsServiceAPI statisticsService) {
-        this.statisticsService = statisticsService;
-    }
 
     /**
      * Maps incoming GET requests for http://localhost:8080/stats

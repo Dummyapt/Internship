@@ -11,11 +11,20 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * {@link Configuration} for Spring Security
+ */
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    /**
+     * Class attribute providing methods from {@link AppUserService}
+     */
     private final AppUserService appUserService;
+    /**
+     * Class attribute providing methods from {@link BCryptPasswordEncoder}
+     */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -40,6 +49,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(daoAuthenticationProvider());
     }
 
+    /**
+     * Creating a provider with a given password encoder
+     * and {@link AppUserService}
+     * @return Provider for authentication
+     */
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         var provider = new DaoAuthenticationProvider();

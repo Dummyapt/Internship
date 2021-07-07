@@ -1,9 +1,6 @@
 package de.dummyapt.internship.appuser;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +14,7 @@ import java.util.Collections;
  */
 @Entity
 @Table
-@Getter @Setter @EqualsAndHashCode @NoArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class AppUser implements UserDetails {
     /**
      * Class attribute annotated as table column
@@ -47,6 +44,12 @@ public class AppUser implements UserDetails {
      */
     private Boolean enabled = false;
 
+    /**
+     * Constructor witth no id
+     * @param email Email address
+     * @param password User password
+     * @param role Role
+     */
     public AppUser(String email,
                    String password,
                    AppUserRole role) {

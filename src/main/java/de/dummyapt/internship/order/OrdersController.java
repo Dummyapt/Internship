@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 
 /**
  * @hidden
- * Controller for Orders service
+ * {@link org.springframework.stereotype.Controller} for {@link OrdersService}
  */
 @Controller
 public class OrdersController {}

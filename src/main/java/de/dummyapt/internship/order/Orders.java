@@ -1,11 +1,7 @@
 package de.dummyapt.internship.order;
 
-import de.dummyapt.internship.appuser.AppUser;
 import de.dummyapt.internship.product.Product;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Orders {
     /**
      * Class attribute annotated as table column

@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * Spring model of the commodity table
+ * Spring model of the {@link Commodity} table
  */
 @Entity
 @Table

@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Interface providing {@link org.springframework.data.repository.CrudRepository} methods
+ * Interface providing {@link CrudRepository} methods
  */
 @Repository
 public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {

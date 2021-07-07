@@ -1,6 +1,5 @@
 package de.dummyapt.internship.product;
 
-import de.dummyapt.internship.commodity.api.CommodityServiceAPI;
 import de.dummyapt.internship.product.api.ProductServiceAPI;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Service class for Product
+ * {@link Service} class for {@link Product}
  */
 @Service
 @EnableScheduling

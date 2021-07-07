@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for Commodity
+ * {@link Service} class for {@link Commodity}
  */
 @Service
 @AllArgsConstructor

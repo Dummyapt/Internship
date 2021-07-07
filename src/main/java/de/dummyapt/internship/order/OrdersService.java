@@ -1,6 +1,5 @@
 package de.dummyapt.internship.order;
 
-import de.dummyapt.internship.commodity.api.CommodityServiceAPI;
 import de.dummyapt.internship.order.api.OrdersServiceAPI;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for Orders
+ * {@link Service} class for {@link Orders}
  */
 @Service
 @AllArgsConstructor

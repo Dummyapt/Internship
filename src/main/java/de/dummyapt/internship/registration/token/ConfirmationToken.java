@@ -1,10 +1,7 @@
 package de.dummyapt.internship.registration.token;
 
 import de.dummyapt.internship.appuser.AppUser;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,7 +11,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Table
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class ConfirmationToken {
     /**
      * Class attribute annotated as table column
@@ -48,6 +45,13 @@ public class ConfirmationToken {
     @JoinColumn(name = "app_user_id", nullable = false)
     private AppUser appUser;
 
+    /**
+     *
+     * @param token Token
+     * @param createdAt Date when the user was created
+     * @param expiresAt Date when the user will expire
+     * @param appUser User object
+     */
     public ConfirmationToken(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiresAt,

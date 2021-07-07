@@ -4,6 +4,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.function.Predicate;
 
+/**
+ * {@link Service} class checking whether an email matches regex or not
+ */
 @Service
 public class EmailValidator implements Predicate<String> {
     @Override
