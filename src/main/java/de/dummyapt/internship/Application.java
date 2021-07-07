@@ -13,15 +13,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
     /**
-     * main()-method starting the spring application with passing
-     * the Application class and the given start
-     * @param args Needed for command line parameters
-     */
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
-    /**
      * {@link SpringApplicationBuilder} for buildung executables (.jar/.war)
      * @param builder Passing itself as it is required to use it
      * @return building resources for the artifact builder to create a .war file
@@ -29,5 +20,14 @@ public class Application extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(Application.class);
+    }
+
+    /**
+     * main()-method starting the spring application with passing
+     * the Application class and the given start
+     * @param args Needed for command line parameters
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
 }
