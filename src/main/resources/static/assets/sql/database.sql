@@ -10,15 +10,16 @@ DELIMITER ;
 
 INSERT INTO commodity (name)
 VALUES ('Gas'),
-       ('Strom');
+       ('Strom'),
+       ('Wind');
 
 INSERT INTO product (name, current_price, commodity_id)
-VALUES ('SHP', RAND(), 1),
+VALUES ('SHP', RAND(), 2),
        ('Spot', RAND(), 1),
        ('Flex', RAND(), 1),
-       ('Base', RAND(), 2),
+       ('Base', RAND(), 3),
        ('Flex', RAND(), 2),
-       ('Peak', RAND(), 2);
+       ('Peak', RAND(), 3);
 
 INSERT INTO statistics (id, count)
 VALUES (1, 0),
