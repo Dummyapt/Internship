@@ -14,7 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class CommodityService implements CommodityServiceAPI {
     /**
-     * Class attribute providing methods from {@link CommodityServiceAPI}
+     * Class attribute providing methods from {@link CommodityRepository}
      */
     private final CommodityRepository commodityRepository;
 

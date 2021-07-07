@@ -14,7 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class StatisticsService implements StatisticsServiceAPI {
     /**
-     * Class attribute providing methods from {@link StatisticsServiceAPI}
+     * Class attribute providing methods from {@link StatisticsRepository}
      */
     private final StatisticsRepository statisticsRepository;
 

@@ -14,7 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class OrdersService implements OrdersServiceAPI {
     /**
-     * Class attribute providing methods from {@link OrdersServiceAPI}
+     * Class attribute providing methods from {@link OrdersRepository}
      */
     private final OrdersRepository ordersRepository;
 
