@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductService implements ProductServiceAPI {
     /**
-     * Class attribute providing methods from {@link ProductServiceAPI}
+     * Class attribute providing methods from {@link ProductRepository}
      */
     private final ProductRepository productRepository;
 
