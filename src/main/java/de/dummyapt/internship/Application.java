@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 /**
  * Start point of {@link SpringBootApplication}
  * @author Duha Cinar
- * @version 1.2
+ * @version 2.0
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
