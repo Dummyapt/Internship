@@ -8,6 +8,7 @@ import lombok.ToString;
 /**
  * {@link org.springframework.web.bind.annotation.RequestBody} model
  */
+@SuppressWarnings("ClassCanBeRecord")
 @Getter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class RegistrationRequest {
     /**

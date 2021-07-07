@@ -8,18 +8,18 @@ CREATE OR REPLACE TRIGGER newOrder
     END //
 DELIMITER ;
 
-INSERT INTO commodity (name)
-VALUES ('Gas'),
-       ('Strom'),
-       ('Wind');
+INSERT INTO commodity (id, name)
+VALUES (1, 'Gas'),
+       (2, 'Strom'),
+       (3, 'Wind');
 
-INSERT INTO product (name, current_price, commodity_id)
-VALUES ('SHP', RAND(), 2),
-       ('Spot', RAND(), 1),
-       ('Flex', RAND(), 1),
-       ('Base', RAND(), 3),
-       ('Flex', RAND(), 2),
-       ('Peak', RAND(), 3);
+INSERT INTO product (id, name, current_price, commodity_id)
+VALUES (1, 'Peak', RAND(), 2),
+       (2, 'Spot', RAND(), 1),
+       (3, 'Flex', RAND(), 1),
+       (4, 'Time', RAND(), 3),
+       (5, 'Flex', RAND(), 2),
+       (6, 'Solid', RAND(), 3);
 
 INSERT INTO statistics (id, count)
 VALUES (1, 0),

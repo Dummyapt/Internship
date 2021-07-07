@@ -2,8 +2,7 @@
     $(function() {
         $().ready(function() {
             (function() {
-                let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-                window.requestAnimationFrame = requestAnimationFrame
+                window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
             })();
 
             let canvas = document.getElementById('canvas-error');

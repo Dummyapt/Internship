@@ -63,6 +63,8 @@ public class ProductControllerREST {
                 stringBuilder.append("<span style=\"color:green; font-size:30px;\">").append("↑").append("</span>").append(openAndClose);
             } else if (product.getPreviousPrice() < product.getCurrentPrice()) {
                 stringBuilder.append("<span style=\"color:red; font-size:30px;\">").append("↓").append("</span>").append(openAndClose);
+            } else {
+                stringBuilder.append("<span style=\"font-size:30px;\">").append("-").append("</span>").append(openAndClose);
             }
             stringBuilder
                     .append(product.getCommodity().getName()).append(openAndClose)
