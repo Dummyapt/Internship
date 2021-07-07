@@ -32,5 +32,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
      * @param id Product id that should be chosen
      * @return Object of Product
      */
-    Product findProductById(Long id);
+    Product findProductById(Integer id);
 }

@@ -16,17 +16,17 @@ public class Statistics {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     /**
      * Class attribute annotated as table column
      */
-    private Long count;
+    private Integer count;
 
     /**
      * Constructor with no id
      * @param count Orders count
      */
-    public Statistics(Long count) {
+    public Statistics(Integer count) {
         this.count = count;
     }
 }

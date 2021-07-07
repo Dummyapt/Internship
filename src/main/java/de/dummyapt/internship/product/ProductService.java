@@ -26,7 +26,7 @@ public class ProductService implements ProductServiceAPI {
     }
 
     @Override
-    public Product getProductById(Long id) {
+    public Product getProductById(Integer id) {
         return productRepository.findProductById(id);
     }
 

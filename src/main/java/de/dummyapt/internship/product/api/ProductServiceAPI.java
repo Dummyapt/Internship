@@ -19,7 +19,7 @@ public interface ProductServiceAPI {
      * @param id Product id
      * @return Product by the given id
      */
-    Product getProductById(Long id);
+    Product getProductById(Integer id);
 
     /**
      * Method for updating the prices

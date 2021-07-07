@@ -12,7 +12,7 @@ import java.util.Optional;
  * Interface providing {@link CrudRepository} methods
  */
 @Repository
-public interface AppUserRepository extends CrudRepository<AppUser, Long> {
+public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
     /**
      * Method for finding a user in the database with an email address
      * @param email Email address

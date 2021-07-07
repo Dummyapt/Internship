@@ -13,7 +13,7 @@ import java.util.Optional;
  * Interface providing {@link CrudRepository} methods
  */
 @Repository
-public interface ConfirmationTokenRepository extends CrudRepository<ConfirmationToken, Long> {
+public interface ConfirmationTokenRepository extends CrudRepository<ConfirmationToken, Integer> {
     /**
      * Method for searching a token in the database
      * @param token Token
