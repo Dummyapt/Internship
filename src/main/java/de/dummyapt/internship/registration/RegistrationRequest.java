@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * RequestBody model
+ * {@link org.springframework.web.bind.annotation.RequestBody} model
  */
 @Getter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class RegistrationRequest {
