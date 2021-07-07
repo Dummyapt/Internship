@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
+                // TODO: 07.07.2021 Check whether a user is an admin or not
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/api/v*/***").permitAll()
