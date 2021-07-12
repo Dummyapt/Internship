@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
  * {@link RestController} for Registration page
  */
 @RestController
-@RequestMapping("/register")
 @AllArgsConstructor
 public class RegistrationControllerREST {
     /**
@@ -20,7 +19,7 @@ public class RegistrationControllerREST {
      * @param request RequestBody
      * @return Registering user with the given credentials
      */
-    @PostMapping
+    @PostMapping("/register")
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
     }
@@ -30,7 +29,7 @@ public class RegistrationControllerREST {
      * @param token Token
      * @return Confirming token via POST request
      */
-    @GetMapping("/confirm")
+    @GetMapping("/register/confirm")
     public String confirm(@RequestParam("token") String token) {
         return registrationService.confirmToken(token);
     }

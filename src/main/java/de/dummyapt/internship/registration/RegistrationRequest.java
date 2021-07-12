@@ -23,4 +23,8 @@ public class RegistrationRequest {
      * Password in request
      */
     private final String password;
+    /**
+     * PasswordConfirmation in request
+     */
+    private final String passwordConfirmation;
 }

@@ -46,7 +46,7 @@ public class ConfirmationToken {
     private AppUser appUser;
 
     /**
-     *
+     * Constructor with no id
      * @param token Token
      * @param createdAt Date when the user was created
      * @param expiresAt Date when the user will expire

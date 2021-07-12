@@ -45,7 +45,7 @@ public class AppUser implements UserDetails {
     private Boolean enabled = false;
 
     /**
-     * Constructor witth no id
+     * Constructor with no id
      * @param email Email address
      * @param password User password
      * @param role Role

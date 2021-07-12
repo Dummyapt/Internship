@@ -7,6 +7,7 @@ let arr = [
     $('#5').text(),
     $('#6').text()
 ];
+
 new Chart(ctx, {
     type: 'bar',
     data: {

@@ -20,6 +20,7 @@ $('#orderModal').on('show.bs.modal', function (event) {
 
 $("#confirmOrder").on("click", function(e) {
     e.preventDefault();
+
     $.ajax({
         type: "POST",
         url: "/confirmOrder",

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
+// TODO: 12.07.2021 Write JavaDoc comments
+// TODO: 12.07.2021 Solve problem with JSON array
 /**
  * Service class for {@link RegistrationControllerREST}
  */
@@ -23,10 +25,14 @@ public class RegistrationService {
     private final EmailSender emailSender;
 
     public String register(RegistrationRequest request) {
-        boolean isValidEmail = emailValidator.test(request.getEmail());
-        if (!isValidEmail) {
-            throw new IllegalStateException("Email not valid!");
+        if (!emailValidator.test(request.getEmail())) {
+            return "Email not valid!";
         }
+
+        if (!request.getPassword().equals(request.getPasswordConfirmation())) {
+            return "Passwords don't match!";
+        }
+
         String token = appUserService.signUpUser(
                 new AppUser(
                         request.getEmail(),
@@ -45,21 +51,27 @@ public class RegistrationService {
     public String confirmToken(String token) {
         var confirmationToken = confirmationTokenService.getToken(token)
                 .orElseThrow(() ->
-                        new IllegalStateException("token not found"));
+                        new IllegalStateException("Token not found!"));
 
         if (confirmationToken.getConfirmedAt() != null) {
-            throw new IllegalStateException("email already confirmed");
+            throw new IllegalStateException("Email already confirmed!");
         }
 
         LocalDateTime expiredAt = confirmationToken.getExpiresAt();
 
         if (expiredAt.isBefore(LocalDateTime.now())) {
-            throw new IllegalStateException("token expired");
+            throw new IllegalStateException("Token expired!");
         }
 
         confirmationTokenService.setConfirmedAt(token);
         appUserService.enableAppUser(confirmationToken.getAppUser().getEmail());
-        return "confirmed";
+        return confirmationPage();
+    }
+
+    private String confirmationPage() {
+        return """
+                <h1 class="display-3">Thank You!</h1>
+                <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>""";
     }
 
     private String buildEmail(String username, String link) {

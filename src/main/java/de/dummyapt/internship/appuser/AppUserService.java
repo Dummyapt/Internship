@@ -43,11 +43,9 @@ public class AppUserService implements UserDetailsService {
      * @return Token
      */
     public String signUpUser(AppUser appUser) {
-        boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+        var userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
         if (userExists) {
-            // TODO: 05.07.2021 Check of attributes are the same
-            // TODO: 05.07.2021 If email not confirmed, send confirmation email again
             throw new IllegalStateException("Email taken!");
         }
 

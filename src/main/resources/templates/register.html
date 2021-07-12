@@ -103,6 +103,7 @@
         }
 
         input[type=text],
+        input[type=email],
         input[type=password] {
             background-color: #f6f6f6;
             color: #0d0d0d;
@@ -123,12 +124,14 @@
         }
 
         input[type=text]:focus,
+        input[type=email]:focus,
         input[type=password]:focus {
             background-color: #fff;
             border-bottom: 2px solid #5fbae9;
         }
 
         input[type=text]::placeholder,
+        input[type=email]::placeholder,
         input[type=password]::placeholder {
             color: #cccccc;
         }
@@ -253,7 +256,7 @@
             width: 100%;
         }
     </style>
-    <title>Log In | Webshop</title>
+    <title>Register | Webshop</title>
 </head>
 
 <body>
@@ -265,20 +268,19 @@
                         id="icon" alt="User Icon" />
                 </div>
 
-                <form th:action="@{/login}" method="post">
+                <form id="registerForm" th:action="@{/register}" method="post">
                     <fieldset>
                         <label for="username">Username</label>
                         <input type="text" class="fadeIn second" id="username" name="username" required>
+                        <label for="email">Email address</label>
+                        <input type="email" class="fadeIn second" id="email" name="email" required>
                         <label for="password">Password</label>
                         <input type="password" class="fadeIn third" id="password" name="password" required>
+                        <label for="passwordConfirmation">Confirm password</label>
+                        <input type="password" class="fadeIn third" id="passwordConfirmation" name="password" required>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary fadeIn fourth button">Log In</button>
-                        </div>
-                        <div th:if="${param.error}" class="alert alert-danger">
-                            Invalid combination username and password.
-                        </div>
-                        <div th:if="${param.logout}" class="alert alert-success">
-                            You have been logged out.
+                            <button type="submit" class="btn btn-primary fadeIn fourth button"
+                                id="submitRegistration">Register</button>
                         </div>
                     </fieldset>
                 </form>
@@ -291,6 +293,23 @@
             <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
         </div>
     </footer>
+
+    <script>
+        $('#submitRegistration').on("click", function (e) {
+            e.preventDefault();
+
+            const formData = JSON.stringify($("#registerForm").serializeArray());
+            alert(formData);
+
+            $.ajax({
+                type: "POST",
+                url: "/register",
+                data: formData,
+                dataType: "json",
+                contentType: "application/json"
+            });
+        });
+    </script>
 
     <script>
         const date = new Date();

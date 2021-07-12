@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * {@link org.springframework.stereotype.Controller} for Statistics page
+ * {@link Controller} for Statistics page
  */
 @Controller
 @AllArgsConstructor
