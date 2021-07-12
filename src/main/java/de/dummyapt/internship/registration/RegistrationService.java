@@ -54,17 +54,18 @@ public class RegistrationService {
                         new IllegalStateException("Token not found!"));
 
         if (confirmationToken.getConfirmedAt() != null) {
-            throw new IllegalStateException("Email already confirmed!");
+            return "Email already confirmed!";
         }
 
         LocalDateTime expiredAt = confirmationToken.getExpiresAt();
 
         if (expiredAt.isBefore(LocalDateTime.now())) {
-            throw new IllegalStateException("Token expired!");
+            return "Token expired!";
         }
 
         confirmationTokenService.setConfirmedAt(token);
         appUserService.enableAppUser(confirmationToken.getAppUser().getEmail());
+
         return confirmationPage();
     }
 
