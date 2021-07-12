@@ -25,7 +25,7 @@ public class StatisticsController {
      * with model attributes added in a hidden div container
      */
     @GetMapping("/stats")
-    public String showStats(Model model) {
+    public String showStatisticsPage(Model model) {
         model.addAttribute("SHP", statisticsService.getStatisticsCountById(1));
         model.addAttribute("Spot", statisticsService.getStatisticsCountById(2));
         model.addAttribute("Flex", statisticsService.getStatisticsCountById(3));

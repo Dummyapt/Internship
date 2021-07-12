@@ -13,7 +13,7 @@ public class LoginController {
      * @return login.html from the resources/ directory
      */
     @GetMapping("/login")
-    public String login() {
+    public String showLoginPage() {
         return "login";
     }
 }

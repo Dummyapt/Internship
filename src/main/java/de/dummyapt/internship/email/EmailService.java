@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 
 /**
- * {@link Service} class for {@link de.dummyapt.internship.registration.RegistrationRequest}
+ * {@link Service} class for registration process
  */
 @Service
 @AllArgsConstructor

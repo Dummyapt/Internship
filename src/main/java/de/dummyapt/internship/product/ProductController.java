@@ -13,7 +13,7 @@ public class ProductController {
      * @return product.html from the resources/ directory
      */
     @GetMapping("/")
-    public String showProducts() {
+    public String showProductsPage() {
         return "product";
     }
 }
