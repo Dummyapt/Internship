@@ -20,7 +20,7 @@ public class RegistrationControllerREST {
      * @return Registering user with the given credentials
      */
     @PostMapping("/register")
-    public String register(@RequestBody RegistrationRequest request) {
+    public String register(@ModelAttribute RegistrationRequest request) {
         return registrationService.register(request);
     }
 

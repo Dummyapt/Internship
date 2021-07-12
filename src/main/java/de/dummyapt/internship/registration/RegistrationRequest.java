@@ -1,30 +1,26 @@
 package de.dummyapt.internship.registration;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * {@link org.springframework.web.bind.annotation.RequestBody} model
  */
-@SuppressWarnings("ClassCanBeRecord")
-@Getter @AllArgsConstructor @EqualsAndHashCode @ToString
+@Getter @Setter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class RegistrationRequest {
     /**
      * Username in request
      */
-    private final String username;
+    private String username;
     /**
      * Email in request
      */
-    private final String email;
+    private String email;
     /**
      * Password in request
      */
-    private final String password;
+    private String password;
     /**
      * PasswordConfirmation in request
      */
-    private final String passwordConfirmation;
+    private String passwordConfirmation;
 }
