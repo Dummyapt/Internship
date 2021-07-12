@@ -1,4 +1,5 @@
 // TODO: Convert this to @ModelAttribute annotation in controller
+//  and use as little JavaScript as possible
 $('#orderModal').on('show.bs.modal', function (event) {
     const button = $(event.relatedTarget);
 

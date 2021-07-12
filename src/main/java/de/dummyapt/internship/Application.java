@@ -31,3 +31,8 @@ public class Application extends SpringBootServletInitializer {
         SpringApplication.run(Application.class, args);
     }
 }
+
+// TODO: 12.07.2021 Remove unused imports
+// TODO: 12.07.2021 Convert/Translate everything into English
+// TODO: 12.07.2021 Check for typos
+// TODO: 12.07.2021 Commit and push to GitHub
