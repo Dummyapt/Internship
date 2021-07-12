@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// TODO: 12.07.2021 Use ModelAttribute annotation to make an order
 /**
  * {@link RestController} for {@link ProductService}
  */

@@ -27,12 +27,12 @@ public class Orders {
     /**
      * Class attribute annotated as table column
      */
-    @Column(columnDefinition = "DEC(5,2)")
+    @Column(columnDefinition = "DEC(7,2)")
     private Double power;
     /**
      * Class attribute annotated as table column
      */
-    @Column(columnDefinition = "DEC(5,2)")
+    @Column(columnDefinition = "DEC(7,2)")
     private Double price;
     /**
      * Class attribute annotated as table column
