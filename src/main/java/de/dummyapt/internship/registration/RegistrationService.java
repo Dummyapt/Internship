@@ -18,11 +18,28 @@ import java.time.LocalDateTime;
 @Service
 @AllArgsConstructor
 public class RegistrationService {
+    /**
+     * Class attribute providing methods from {@link AppUserService}
+     */
     private final AppUserService appUserService;
-    private final EmailValidator emailValidator;
+    /**
+     * Class attribute providing methods from {@link ConfirmationTokenService}
+     */
     private final ConfirmationTokenService confirmationTokenService;
+    /**
+     * Class attribute providing methods from {@link EmailValidator}
+     */
+    private final EmailValidator emailValidator;
+    /**
+     * Class attribute providing methods from {@link EmailSender}
+     */
     private final EmailSender emailSender;
 
+    /**
+     * Method for creating a new user with the given request
+     * @param request Request containing account credentials
+     * @return Creating a new user
+     */
     public String register(RegistrationRequest request) {
         if (!emailValidator.test(request.getEmail())) {
             return "Email not valid!";
@@ -126,6 +143,11 @@ public class RegistrationService {
                 </div>""";
     }
 
+    /**
+     * Method for confirming the token via the activation link
+     * @param token Token
+     * @return Token wasn't found - Token already confirmed - Token expired
+     */
     @Transactional
     public String confirmToken(String token) {
         var confirmationToken = confirmationTokenService.getToken(token)
@@ -148,12 +170,22 @@ public class RegistrationService {
         return confirmationPage();
     }
 
+    /**
+     * Method creates a thanking page
+     * @return Confirmation page
+     */
     private String confirmationPage() {
         return """
-                <h1 class="display-3">Thank You!</h1>
-                <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>""";
+                <h1>Thank You!</h1>
+                <p>You can now log in with your account credentials.</p>""";
     }
 
+    /**
+     * Method for creating a dynamic email
+     * @param username Username
+     * @param link Created link with token
+     * @return Email containing HTML
+     */
     private String buildEmail(String username, String link) {
         return """
                 <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c">
