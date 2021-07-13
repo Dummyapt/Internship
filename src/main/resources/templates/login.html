@@ -63,9 +63,16 @@
             text-align: center;
         }
 
-        input[type=button],
-        input[type=submit],
-        input[type=reset] {
+        #formFooter {
+            background-color: #f6f6f6;
+            border-top: 1px solid #dce8f1;
+            padding: 25px;
+            text-align: center;
+            -webkit-border-radius: 0 0 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        input[type=button] {
             background-color: #56baed;
             border: none;
             color: white;
@@ -86,15 +93,11 @@
             transition: all 0.3s ease-in-out;
         }
 
-        input[type=button]:hover,
-        input[type=submit]:hover,
-        input[type=reset]:hover {
+        input[type=button]:hover {
             background-color: #39ace7;
         }
 
-        input[type=button]:active,
-        input[type=submit]:active,
-        input[type=reset]:active {
+        input[type=button]:active {
             -moz-transform: scale(0.95);
             -webkit-transform: scale(0.95);
             -o-transform: scale(0.95);
@@ -102,7 +105,7 @@
             transform: scale(0.95);
         }
 
-        input[type=text],
+        input[type=email],
         input[type=password] {
             background-color: #f6f6f6;
             color: #0d0d0d;
@@ -122,15 +125,10 @@
             border-radius: 5px 5px 5px 5px;
         }
 
-        input[type=text]:focus,
+        input[type=email]:focus,
         input[type=password]:focus {
             background-color: #fff;
             border-bottom: 2px solid #5fbae9;
-        }
-
-        input[type=text]::placeholder,
-        input[type=password]::placeholder {
-            color: #cccccc;
         }
 
         .fadeInDown {
@@ -201,6 +199,8 @@
         }
 
         .fadeIn {
+            margin: 25px;
+
             opacity: 0;
             -webkit-animation: fadeIn ease-in 1;
             -moz-animation: fadeIn ease-in 1;
@@ -239,6 +239,25 @@
             animation-delay: 1s;
         }
 
+        .underlineHover:after {
+            display: block;
+            left: 0;
+            bottom: -10px;
+            width: 0;
+            height: 2px;
+            background-color: #56baed;
+            content: "";
+            transition: width 0.2s;
+        }
+
+        .underlineHover:hover {
+            color: #0d0d0d;
+        }
+
+        .underlineHover:hover:after {
+            width: 100%;
+        }
+
         *:focus {
             outline: none;
         }
@@ -265,10 +284,10 @@
                         id="icon" alt="User Icon" />
                 </div>
 
-                <form th:action="@{/login}" method="post">
+                <form id="loginForm" action="/login" method="post">
                     <fieldset>
                         <label for="username">Email Address</label>
-                        <input type="text" class="fadeIn second" id="username" name="username" required>
+                        <input type="email" class="fadeIn second" id="username" name="username" required>
                         <label for="password">Password</label>
                         <input type="password" class="fadeIn third" id="password" name="password" required>
                         <div class="form-actions">
@@ -282,6 +301,10 @@
                         </div>
                     </fieldset>
                 </form>
+
+                <div id="formFooter">
+                    <a class="underlineHover" href="/register">Not registered yet?</a>
+                </div>
             </div>
         </div>
     </main>

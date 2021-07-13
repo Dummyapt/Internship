@@ -34,6 +34,7 @@ new Chart(ctx, {
             borderWidth: 1
         }]
     },
+
     options: {
         scales: {
             y: {
