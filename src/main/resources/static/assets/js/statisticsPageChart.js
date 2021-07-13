@@ -11,7 +11,7 @@ let arr = [
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['SHP', 'Spot', 'Flex (Gas)', 'Base', 'Flex (Strom)', 'Peak'],
+        labels: ['Peak', 'Spot', 'Flex (Gas)', 'Time', 'Flex (Electricity)', 'Solid'],
         datasets: [{
             label: '# of Orders',
             data: arr,

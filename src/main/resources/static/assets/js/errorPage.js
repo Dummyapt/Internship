@@ -73,9 +73,9 @@
             smoke.prototype.update = function() {
                 this.lifeTime = new Date().getTime() - this.startLife;
                 this.angle += 0.2;
-                let lifePerc = ((this.lifeTime / maxLifeTime) * 100);
-                this.size = this.startSize + ((this.endSize - this.startSize) * lifePerc * .1);
-                this.alpha = 1 - (lifePerc * .01);
+                let lifePercentage = ((this.lifeTime / maxLifeTime) * 100);
+                this.size = this.startSize + ((this.endSize - this.startSize) * lifePercentage * .1);
+                this.alpha = 1 - (lifePercentage * .01);
                 this.alpha = Math.max(this.alpha, 0);
                 this.x += this.velX;
                 this.y += this.velY

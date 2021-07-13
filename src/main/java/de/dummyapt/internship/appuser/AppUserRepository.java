@@ -21,7 +21,7 @@ public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
     Optional<AppUser> findByEmail(String email);
 
     /**
-     * Method for updating the activation status of an user
+     * Method for updating the activation status of a user
      * @param email Email address
      */
     @Transactional(readOnly = true)

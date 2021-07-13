@@ -14,7 +14,7 @@
     <artifactId>internship</artifactId>
     <version>2.0</version>
     <name>Internship</name>
-    <description>Spring Boot project while doing my internship at Spie SAG.</description>
+    <description>Spring Boot project while doing my internship at Spie.</description>
 
     <properties>
         <java.version>16</java.version>

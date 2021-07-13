@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// TODO: 12.07.2021 Use ModelAttribute annotation to make an order
 /**
  * {@link RestController} for {@link ProductService}
  */
@@ -35,12 +34,12 @@ public class ProductControllerREST {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Vorheriger Preis</th>
-                            <th>Aktueller Preis</th>
-                            <th>Preisentwicklung</th>
+                            <th>Previous price</th>
+                            <th>Current price</th>
+                            <th>Price development</th>
                             <th>Commodity</th>
-                            <th>Leistung</th>
-                            <th>Kaufen</th>
+                            <th>Power</th>
+                            <th>Buy</th>
                         </tr>
                     </thead>
                     <tbody>""");
@@ -69,13 +68,13 @@ public class ProductControllerREST {
                     .append("class=").append("\"").append("btn btn-primary").append("\"")
                     .append("data-bs-toggle=").append("\"").append("modal").append("\"")
                     .append("data-bs-target=").append("\"").append("#orderModal").append("\"")
-                    .append("data-productid=").append("\"").append(product.getId()).append("\"")
-                    .append("data-productname=").append("\"").append(product.getName()).append("\"")
-                    .append("data-productpreviousprice=").append("\"").append(product.getPreviousPrice()).append("\"")
-                    .append("data-productcurrentprice=").append("\"").append(product.getCurrentPrice()).append("\"")
-                    .append("data-productcommodity=").append("\"").append(product.getCommodity().getName()).append("\"")
+                    .append("data-product-id=").append("\"").append(product.getId()).append("\"")
+                    .append("data-product-name=").append("\"").append(product.getName()).append("\"")
+                    .append("data-product-previous-price=").append("\"").append(product.getPreviousPrice()).append("\"")
+                    .append("data-product-current-price=").append("\"").append(product.getCurrentPrice()).append("\"")
+                    .append("data-product-commodity=").append("\"").append(product.getCommodity().getName()).append("\"")
                     .append("data-customer=").append("\"").append(auth.getName()).append("\"")
-                    .append(">").append("Kaufen</a>")
+                    .append(">").append("Buy</a>")
                     .append("</td></tr>");
         }
         stringBuilder.append("""

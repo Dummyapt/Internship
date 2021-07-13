@@ -10,7 +10,7 @@ DELIMITER ;
 
 INSERT INTO commodity (id, name)
 VALUES (1, 'Gas'),
-       (2, 'Strom'),
+       (2, 'Electricity'),
        (3, 'Wind');
 
 INSERT INTO product (id, name, current_price, commodity_id)

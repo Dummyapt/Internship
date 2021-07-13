@@ -16,7 +16,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE product SET current_price = RAND()", nativeQuery = true)
+    @Query(value = "UPDATE product SET current_price = RAND() WHERE id > 0", nativeQuery = true)
     void updatePrices();
 
     /**
@@ -24,7 +24,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
      */
     @Modifying
     @Transactional
-    @Query(value = "UPDATE product SET previous_price = current_price", nativeQuery = true)
+    @Query(value = "UPDATE product SET previous_price = current_price WHERE id > 0", nativeQuery = true)
     void copyCurrentPrices();
 
     /**

@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="assets/css/productPage.css" rel="stylesheet">
     <script src="assets/js/productPage.js"></script>
-    <title>Products | Webshop</title>
+    <title>Products | eCommerce</title>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
 
     <main>
         <div class="container text-center">
-            <h1>Willkommen in meinem Shop!</h1>
+            <h1>Welcome to my eCommerce shop!</h1>
         </div>
 
         <div class="container text-center" id="products"></div>
@@ -61,40 +61,40 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="orderModalLabel">Bitte bestätigen Sie den Kauf</h5>
+                        <h5 class="modal-title" id="orderModalLabel">Please confirm your order!</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
-                        Sie sind im Begriff folgende Bestellung abzusetzen:
+                        Confirm your order:
                         <a hidden id="customer"></a>
                         <ul>
                             <li hidden>
                                 <b>ID:</b> <a id="productId"></a>
                             </li>
                             <li>
-                                <b>Produktname:</b> <a id="productName"></a>
+                                <b>Product name:</b> <a id="productName"></a>
                             </li>
                             <li>
                                 <b>Commodity:</b> <a id="productCommodity"></a>
                             </li>
                             <li>
-                                <b>Aktueller Preis:</b> <a id="productCurrentPrice"></a>€
+                                <b>Current price:</b> <a id="productCurrentPrice"></a>€
                             </li>
                             <li>
-                                <b>Gewünschte Leistung:</b> <a id="productPower"></a> kWh
+                                <b>Wanted power:</b> <a id="productPower"></a> kWh
                             </li>
                             <li>
-                                <b>Gesamtkosten:</b> <a id="productPrice"></a>€
+                                <b>Total cost:</b> <a id="productPrice"></a>€
                             </li>
                         </ul>
                         <a id="orderConfirmation"></a>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="confirmOrder">Bestätigen</button>
+                        <button type="button" class="btn btn-primary" id="confirmOrder">Confirm</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="cancelOrder">Abbrechen</button>
+                            id="cancelOrder">Cancel</button>
                     </div>
                 </div>
             </div>
