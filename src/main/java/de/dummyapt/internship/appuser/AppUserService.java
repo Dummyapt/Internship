@@ -46,7 +46,7 @@ public class AppUserService implements UserDetailsService {
         var userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
         if (userExists) {
-            throw new IllegalStateException("Email taken!");
+            return "Email taken!";
         }
 
         var encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());

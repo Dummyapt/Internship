@@ -1,15 +1,13 @@
-// TODO: Convert this to @ModelAttribute annotation in controller
-//  and use as little JavaScript as possible
 $('#orderModal').on('show.bs.modal', function (event) {
     const button = $(event.relatedTarget);
 
-    const productId = button.data('productid');
-    const productCurrentPrice = button.data('productcurrentprice');
-    const productName = button.data('productname');
-    const productCommodity = button.data('productcommodity');
-    const productPower = parseFloat($(".valueInput" + productId).val()).toFixed(2);
-    const productPrice = productCurrentPrice * productPower;
-    const productCustomer = button.data('customer');
+    const productId = button.data('productid'),
+        productCurrentPrice = button.data('productcurrentprice'),
+        productName = button.data('productname'),
+        productCommodity = button.data('productcommodity'),
+        productPower = parseFloat($(".valueInput" + productId).val()).toFixed(2),
+        productPrice = productCurrentPrice * productPower,
+        productCustomer = button.data('customer');
 
     $('#productId').text(productId);
     $('#productCurrentPrice').text(productCurrentPrice);
@@ -32,6 +30,7 @@ $("#confirmOrder").on("click", function(e) {
             "cost" : $('#productPrice').text(),
             "user" : $('#customer').text()
         },
+
         success: async function() {
             $('#orderConfirmation').load("orderSuccess");
             await new Promise(r => setTimeout(r, 2_000));
@@ -39,6 +38,7 @@ $("#confirmOrder").on("click", function(e) {
             await new Promise(r => setTimeout(r, 500));
             location.reload();
         },
+
         error: async function() {
             $('#orderConfirmation').load("orderError");
             await new Promise(r => setTimeout(r, 2_000));
