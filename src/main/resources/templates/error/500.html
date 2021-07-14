@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="assets/css/errorPage.css" rel="stylesheet">
+    <script src="assets/js/errorPage.js"></script>
+    <title>Error 500 | eCommerce</title>
+</head>
+
+<body>
+<main>
+    <div class="container text-center">
+        <h1>500</h1>
+        <h2>Internal Server Error</h2>
+        <hr>
+        <h3>Report this issue on GitHub</h3>
+    </div>
+
+    <div class="ag-page-error text-center">
+        <div class="ag-toaster-wrap">
+            <div class="ag-toaster">
+                <div class="ag-toaster_back"></div>
+
+                <div class="ag-toaster_front">
+                    <div class="js-toaster_lever ag-toaster_lever"></div>
+                </div>
+
+                <div class="ag-toaster_toast-handler">
+                    <div class="js-toaster_toast ag-toaster_toast js-ag-hide">
+                        <button class="btn btn-primary"><a href="/" style="color: white;">Go Home</a></button>
+                        <button class="btn btn-danger"><a href="https://github.com/Dummyapt/Internship/issues/new"
+                                                          style="color: white;">Create issue</a></button>
+                    </div>
+                </div>
+            </div>
+
+            <canvas id="canvas-error" class="ag-canvas-error"></canvas>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light text-center">
+    <div class="container">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-danger" value="Logout">
+        </form>
+        <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
+    </div>
+</footer>
+
+<script src="assets/js/copyrightDate.js"></script>
+</body>
+
+</html>

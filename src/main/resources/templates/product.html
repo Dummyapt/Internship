@@ -1,120 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="assets/css/productPage.css" rel="stylesheet">
     <script src="assets/js/productPage.js"></script>
     <title>Products | eCommerce</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">Shop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item" style="background-color: rgba(6,6,6,0.2); border-radius: 15px;">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" style="background-color: rgba(6,6,6,0.2); border-radius: 15px;">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/stats">Statistics</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            API
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/api/v1/commodities">Commodity</a></li>
+                            <li><a class="dropdown-item" href="/api/v1/products">Product</a></li>
+                            <li><a class="dropdown-item" href="/api/v1/statistics">Statistics</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container text-center" sec:authorize="isAuthenticated()">
+        Welcome <b><span sec:authentication="name">Username</span></b>
+        &nbsp;
+        <span sec:authentication="principal.authorities">Roles</span>
+    </div>
+
+    <div class="container text-center">
+        <h1>Welcome to my eCommerce shop!</h1>
+    </div>
+
+    <div class="container text-center" id="products"></div>
+
+    <div class="modal fade" id="orderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderModalLabel">Please confirm your order!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    Confirm your order:
+                    <a hidden id="customer"></a>
+                    <ul>
+                        <li hidden>
+                            <b>ID:</b> <a id="productId"></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/stats">Statistics</a>
+                        <li>
+                            <b>Product name:</b> <a id="productName"></a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                API
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/api/v1/commodities">Commodity</a></li>
-                                <li><a class="dropdown-item" href="/api/v1/products">Product</a></li>
-                                <li><a class="dropdown-item" href="/api/v1/statistics">Statistics</a></li>
-                            </ul>
+                        <li>
+                            <b>Commodity:</b> <a id="productCommodity"></a>
+                        </li>
+                        <li>
+                            <b>Current price:</b> <a id="productCurrentPrice"></a>€
+                        </li>
+                        <li>
+                            <b>Wanted power:</b> <a id="productPower"></a> kWh
+                        </li>
+                        <li>
+                            <b>Total cost:</b> <a id="productPrice"></a>€
                         </li>
                     </ul>
+                    <a id="orderConfirmation"></a>
                 </div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-        <div class="container text-center">
-            <h1>Welcome to my eCommerce shop!</h1>
-        </div>
-
-        <div class="container text-center" id="products"></div>
-
-        <div class="modal fade" id="orderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="orderModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="orderModalLabel">Please confirm your order!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                        Confirm your order:
-                        <a hidden id="customer"></a>
-                        <ul>
-                            <li hidden>
-                                <b>ID:</b> <a id="productId"></a>
-                            </li>
-                            <li>
-                                <b>Product name:</b> <a id="productName"></a>
-                            </li>
-                            <li>
-                                <b>Commodity:</b> <a id="productCommodity"></a>
-                            </li>
-                            <li>
-                                <b>Current price:</b> <a id="productCurrentPrice"></a>€
-                            </li>
-                            <li>
-                                <b>Wanted power:</b> <a id="productPower"></a> kWh
-                            </li>
-                            <li>
-                                <b>Total cost:</b> <a id="productPrice"></a>€
-                            </li>
-                        </ul>
-                        <a id="orderConfirmation"></a>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="confirmOrder">Confirm</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="cancelOrder">Cancel</button>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirmOrder">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="cancelOrder">Cancel
+                    </button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="footer mt-auto py-3 bg-light text-center">
-        <div class="container">
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" class="btn btn-danger" value="Logout">
-            </form>
-            <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
-        </div>
-    </footer>
+<footer class="footer mt-auto py-3 bg-light text-center">
+    <div class="container">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-danger" value="Logout">
+        </form>
+        <span class="text-muted">© Copyright <span id="yearSpan"></span> Duha Cinar</span>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-    <script src="assets/js/productPageAjax.js"></script>
-    <script src="assets/js/copyrightDate.js"></script>
+<script src="assets/js/productPageAjax.js"></script>
+<script src="assets/js/copyrightDate.js"></script>
 </body>
 
 </html>
