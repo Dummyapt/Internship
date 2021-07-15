@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
-// TODO: 12.07.2021 Write JavaDoc comments
 /**
  * Service class for {@link RegistrationControllerREST}
  */
