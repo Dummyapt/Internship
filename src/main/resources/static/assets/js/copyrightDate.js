@@ -1,3 +1,5 @@
+'use strict';
+
 const date = new Date();
 
 if (date.getFullYear() === 2021) {

@@ -1,3 +1,5 @@
+'use strict';
+
 let ctx = $('#chart');
 let arr = [
     $('#1').text(),

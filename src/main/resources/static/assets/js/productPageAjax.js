@@ -1,3 +1,5 @@
+'use strict';
+
 $('#orderModal').on('show.bs.modal', function (event) {
     const button = $(event.relatedTarget);
 
