@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class LoginController {
+
     /**
      * Maps incoming GET requests for http://localhost:8080/login
      * @return login.html from the resources/ directory

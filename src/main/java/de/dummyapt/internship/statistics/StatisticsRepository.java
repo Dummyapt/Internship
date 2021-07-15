@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface StatisticsRepository extends CrudRepository<Statistics, Integer> {
+
     /**
      * Method for finding a statistics value by the passed id
      * @param id Product id of the statistics that should be chosen

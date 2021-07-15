@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class RegistrationController {
+
     /**
      * GET request handler to confirm tokens
      * @return register.html from the resources/ directory

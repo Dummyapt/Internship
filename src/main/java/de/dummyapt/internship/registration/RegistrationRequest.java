@@ -7,18 +7,22 @@ import lombok.*;
  */
 @Getter @Setter @AllArgsConstructor @EqualsAndHashCode @ToString
 public class RegistrationRequest {
+
     /**
      * Username in request
      */
     private String username;
+
     /**
      * Email in request
      */
     private String email;
+
     /**
      * Password in request
      */
     private String password;
+
     /**
      * PasswordConfirmation in request
      */

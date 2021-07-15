@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @AllArgsConstructor
 public class StatisticsController {
+
     /**
      * Class attribute providing methods from {@link StatisticsServiceAPI}
      */

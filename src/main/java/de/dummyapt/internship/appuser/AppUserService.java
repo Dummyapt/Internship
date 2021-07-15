@@ -18,14 +18,17 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
+
     /**
      * Class attribute providing methods from {@link AppUserRepository}
      */
     private final AppUserRepository appUserRepository;
+
     /**
      * Class attribute providing methods from {@link BCryptPasswordEncoder}
      */
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
     /**
      * Class attribute providing methods from {@link ConfirmationTokenService}
      */

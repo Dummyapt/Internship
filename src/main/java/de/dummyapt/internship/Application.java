@@ -12,6 +12,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
+
     /**
      * {@link SpringApplicationBuilder} for building executables (.jar/.war)
      * @param builder Passing itself as it is required to use it

@@ -9,6 +9,7 @@ import java.util.Optional;
  * Interface providing methods for retrieving data from the database
  */
 public interface StatisticsServiceAPI {
+
     /**
      * Method for getting all Statistics records
      * @return JSON array of the table

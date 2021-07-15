@@ -12,6 +12,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ConfirmationTokenService {
+
     /**
      * Class attribute providing methods from {@link ConfirmationTokenRepository}
      */

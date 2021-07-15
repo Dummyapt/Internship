@@ -16,10 +16,12 @@ import javax.mail.MessagingException;
 @Service
 @AllArgsConstructor
 public class EmailService implements EmailSender {
+
     /**
      * Class attribute providing methods from {@link Logger}
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailService.class);
+
     /**
      * Class attribute providing methods from {@link JavaMailSender}
      */

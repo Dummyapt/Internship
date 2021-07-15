@@ -13,6 +13,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class StatisticsService implements StatisticsServiceAPI {
+
     /**
      * Class attribute providing methods from {@link StatisticsRepository}
      */

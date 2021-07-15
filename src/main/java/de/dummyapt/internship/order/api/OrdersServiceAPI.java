@@ -9,6 +9,7 @@ import java.util.Optional;
  * Interface providing methods for retrieving data from the database
  */
 public interface OrdersServiceAPI {
+
     /**
      * Method for getting all Orders records
      * @return JSON array of the table

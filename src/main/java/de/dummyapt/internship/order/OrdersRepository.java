@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface OrdersRepository extends CrudRepository<Orders, Integer> {
+
     /**
      * Database query selecting the records with the given product id
      * @param productId Product id, that should be chosen

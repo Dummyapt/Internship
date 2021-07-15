@@ -13,6 +13,7 @@ import java.util.Optional;
  */
 @Repository
 public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
+
     /**
      * Method for finding a user in the database with an email address
      * @param email Email address

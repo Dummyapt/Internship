@@ -12,7 +12,8 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-public class CommodityControllerREST {
+public class CommodityRestController {
+
     /**
      * Class attribute providing methods from {@link CommodityServiceAPI}
      */

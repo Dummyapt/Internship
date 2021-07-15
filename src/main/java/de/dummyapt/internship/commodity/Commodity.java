@@ -11,12 +11,14 @@ import javax.persistence.*;
 @Table
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Commodity {
+
     /**
      * Class attribute annotated as table column
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     /**
      * Class attribute annotated as table column
      */

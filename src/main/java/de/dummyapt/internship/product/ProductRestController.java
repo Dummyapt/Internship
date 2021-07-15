@@ -13,7 +13,8 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-public class ProductControllerREST {
+public class ProductRestController {
+
     /**
      * Class attribute providing methods from {@link ProductServiceAPI}
      */

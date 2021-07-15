@@ -21,14 +21,17 @@ public class RegistrationService {
      * Class attribute providing methods from {@link AppUserService}
      */
     private final AppUserService appUserService;
+
     /**
      * Class attribute providing methods from {@link ConfirmationTokenService}
      */
     private final ConfirmationTokenService confirmationTokenService;
+
     /**
      * Class attribute providing methods from {@link EmailValidator}
      */
     private final EmailValidator emailValidator;
+
     /**
      * Class attribute providing methods from {@link EmailSender}
      */

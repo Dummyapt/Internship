@@ -21,23 +21,28 @@ public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     /**
      * Class attribute annotated as table column
      */
     private String email;
+
     /**
      * Class attribute annotated as table column
      */
     private String password;
+
     /**
      * Class attribute annotated as table column
      */
     @Enumerated(EnumType.STRING)
     private AppUserRole role;
+
     /**
      * Class attribute annotated as table column
      */
     private Boolean locked = false;
+
     /**
      * Class attribute annotated as table column
      */

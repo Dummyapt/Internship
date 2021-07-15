@@ -12,7 +12,8 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-public class StatisticsControllerREST {
+public class StatisticsRestController {
+
     /**
      * Class attribute providing methods from {@link StatisticsServiceAPI}
      */

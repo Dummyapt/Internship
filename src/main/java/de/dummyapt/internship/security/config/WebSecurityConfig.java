@@ -18,10 +18,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 @AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     /**
      * Class attribute providing methods from {@link AppUserService}
      */
     private final AppUserService appUserService;
+
     /**
      * Class attribute providing methods from {@link BCryptPasswordEncoder}
      */

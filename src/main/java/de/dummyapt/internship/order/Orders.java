@@ -12,28 +12,33 @@ import javax.persistence.*;
 @Table
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class Orders {
+
     /**
      * Class attribute annotated as table column
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     /**
      * Class attribute annotated as table column
      */
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+
     /**
      * Class attribute annotated as table column
      */
     @Column(columnDefinition = "DEC(7,2)")
     private Double power;
+
     /**
      * Class attribute annotated as table column
      */
     @Column(columnDefinition = "DEC(7,2)")
     private Double price;
+
     /**
      * Class attribute annotated as table column
      */

@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Configuration
 public class PasswordEncoder {
+
     /**
      * {@link Bean} for creating a new {@link BCryptPasswordEncoder} object
      * @return BCryptPasswordEncoder object

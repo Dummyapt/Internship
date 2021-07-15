@@ -15,6 +15,7 @@ import java.util.List;
 @EnableScheduling
 @AllArgsConstructor
 public class ProductService implements ProductServiceAPI {
+
     /**
      * Class attribute providing methods from {@link ProductRepository}
      */

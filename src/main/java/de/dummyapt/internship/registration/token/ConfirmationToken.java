@@ -13,31 +13,37 @@ import java.time.LocalDateTime;
 @Table
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class ConfirmationToken {
+
     /**
      * Class attribute annotated as table column
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     /**
      * Class attribute annotated as table column
      */
     @Column(nullable = false)
     private String token;
+
     /**
      * Class attribute annotated as table column
      */
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
     /**
      * Class attribute annotated as table column
      */
     @Column(nullable = false)
     private LocalDateTime expiresAt;
+
     /**
      * Class attribute annotated as table column
      */
     private LocalDateTime confirmedAt;
+
     /**
      * Class attribute annotated as table column
      */

@@ -14,6 +14,7 @@ import java.util.Optional;
  */
 @Repository
 public interface ConfirmationTokenRepository extends CrudRepository<ConfirmationToken, Integer> {
+
     /**
      * Method for searching a token in the database
      * @param token Token

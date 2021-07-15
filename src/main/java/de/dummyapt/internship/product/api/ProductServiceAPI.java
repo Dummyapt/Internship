@@ -8,6 +8,7 @@ import java.util.List;
  * Interface providing methods for retrieving data from the database
  */
 public interface ProductServiceAPI {
+
     /**
      * Method for getting all Product records
      * @return JSON array of the table

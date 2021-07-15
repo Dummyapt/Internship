@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @AllArgsConstructor
-public class OrdersControllerREST {
+public class OrdersRestController {
+
     /**
      * Class attribute providing methods from {@link OrdersServiceAPI}
      */

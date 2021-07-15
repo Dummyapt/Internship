@@ -13,6 +13,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class CommodityService implements CommodityServiceAPI {
+
     /**
      * Class attribute providing methods from {@link CommodityRepository}
      */

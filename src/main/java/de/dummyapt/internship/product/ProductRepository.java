@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
+
     /**
      * Scheduled query for updating the prices randomly with a value between 0 and 1
      */

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 public class RegistrationControllerREST {
+
     /**
      * Class attribute providing methods from {@link RegistrationService}
      */
