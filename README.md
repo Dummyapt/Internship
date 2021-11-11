@@ -1,8 +1,8 @@
 # About
 The project was made using the following tools, SDKs and frameworks:  
 
-- ☕Java (JDK 16)
-- 🍃Spring 2.5.2
+- ☕Java (JDK 17 LTS)
+- 🍃Spring 2.5.5
 - 🪶Apache Maven 3.8.1
 
 In addition:
